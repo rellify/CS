@@ -1,0 +1,24 @@
+17:54:17 **** Incremental Build of configuration Debug for project 235_lab06 ****
+make all 
+Building file: ../test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.cpp"
+../test.cpp:4:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << "Lab 06 test file----------------" << endl;
+        ^~~~
+        std::cout
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:50:33: note: 'std::cout' declared here
+extern _LIBCPP_FUNC_VIS ostream cout;
+                                ^
+../test.cpp:4:48: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << "Lab 06 test file----------------" << endl;
+                                                      ^~~~
+                                                      std::endl
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ostream:1020:1: note: 'std::endl' declared here
+endl(basic_ostream<_CharT, _Traits>& __os)
+^
+2 errors generated.
+make: *** [test.o] Error 1
+
+17:54:17 Build Finished (took 296ms)
+

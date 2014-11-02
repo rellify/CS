@@ -1,0 +1,201 @@
+17:53:20 **** Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../Factory.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Factory.d" -MT"Factory.d" -o "Factory.o" "../Factory.cpp"
+Finished building: ../Factory.cpp
+ 
+Building file: ../Pathfinder.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Pathfinder.d" -MT"Pathfinder.d" -o "Pathfinder.o" "../Pathfinder.cpp"
+../Pathfinder.cpp:16:20: error: expected ';' after namespace name
+using namespace std
+                   ^
+                   ;
+1 error generated.
+make: *** [Pathfinder.o] Error 1
+17:53:32 **** Incremental Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../Pathfinder.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Pathfinder.d" -MT"Pathfinder.d" -o "Pathfinder.o" "../Pathfinder.cpp"
+../Pathfinder.cpp:16:20: error: expected ';' after namespace name
+using namespace std
+                   ^
+                   ;
+1 error generated.
+make: *** [Pathfinder.o] Error 1
+17:53:32 **** Build of configuration Debug for project 235_lab06 ****
+make all 
+Building file: ../Factory.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Factory.d" -MT"Factory.d" -o "Factory.o" "../Factory.cpp"
+Finished building: ../Factory.cpp
+ 
+Building file: ../Node.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Node.d" -MT"Node.d" -o "Node.o" "../Node.cpp"
+Finished building: ../Node.cpp
+ 
+Building file: ../test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.cpp"
+Finished building: ../test.cpp
+ 
+Building target: 235_lab06
+Invoking: MacOS X C++ Linker
+g++  -o "235_lab06"  ./Factory.o ./Node.o ./test.o   
+duplicate symbol __ZN4NodeC2Ei in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZTV4Node in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4NodeC1Ei in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4NodeD2Ev in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4NodeD1Ev in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4NodeD0Ev in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4Node7getDataEv in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4Node12getLeftChildEv in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZN4Node13getRightChildEv in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZTI4Node in:
+    ./Node.o
+    ./test.o
+duplicate symbol __ZTS4Node in:
+    ./Node.o
+    ./test.o
+ld: 11 duplicate symbols for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [235_lab06] Error 1
+17:54:04 **** Incremental Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../Pathfinder.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Pathfinder.d" -MT"Pathfinder.d" -o "Pathfinder.o" "../Pathfinder.cpp"
+../Pathfinder.cpp:16:20: error: expected ';' after namespace name
+using namespace std
+                   ^
+                   ;
+1 error generated.
+make: *** [Pathfinder.o] Error 1
+17:54:04 **** Incremental Build of configuration Debug for project 235_lab06 ****
+make all 
+Building file: ../test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.cpp"
+../test.cpp:4:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << "Lab 06 test file----------------" << endl;
+        ^~~~
+        std::cout
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:50:33: note: 'std::cout' declared here
+extern _LIBCPP_FUNC_VIS ostream cout;
+                                ^
+../test.cpp:4:48: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << "Lab 06 test file----------------" << endl;
+                                                      ^~~~
+                                                      std::endl
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ostream:1020:1: note: 'std::endl' declared here
+endl(basic_ostream<_CharT, _Traits>& __os)
+^
+2 errors generated.
+make: *** [test.o] Error 1
+17:54:16 **** Incremental Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../Pathfinder.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Pathfinder.d" -MT"Pathfinder.d" -o "Pathfinder.o" "../Pathfinder.cpp"
+../Pathfinder.cpp:90:3: error: use of undeclared identifier 'temporary'
+                temporary += item + " ";
+                ^
+../Pathfinder.cpp:95:25: error: expected ';' at end of declaration
+        stringstream maze(temp)
+                               ^
+                               ;
+../Pathfinder.cpp:100:32: error: use of undeclared identifier 'x'
+        string coords = "(" + convert(x) + ", " + convert(y) + ", " 
+                                      ^
+../Pathfinder.cpp:100:52: error: use of undeclared identifier 'y'
+        string coords = "(" + convert(x) + ", " + convert(y) + ", " 
+                                                          ^
+../Pathfinder.cpp:101:13: error: use of undeclared identifier 'z'
+                + convert(z) + ")";
+                          ^
+../Pathfinder.cpp:102:6: error: expected expression
+        if ()
+            ^
+../Pathfinder.cpp:103:9: error: use of undeclared identifier 'solution'
+        return solution;
+               ^
+7 errors generated.
+make: *** [Pathfinder.o] Error 1
+17:54:17 **** Incremental Build of configuration Debug for project 235_lab06 ****
+make all 
+Building file: ../test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.cpp"
+../test.cpp:4:2: error: use of undeclared identifier 'cout'; did you mean 'std::cout'?
+        cout << "Lab 06 test file----------------" << endl;
+        ^~~~
+        std::cout
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/iostream:50:33: note: 'std::cout' declared here
+extern _LIBCPP_FUNC_VIS ostream cout;
+                                ^
+../test.cpp:4:48: error: use of undeclared identifier 'endl'; did you mean 'std::endl'?
+        cout << "Lab 06 test file----------------" << endl;
+                                                      ^~~~
+                                                      std::endl
+/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/ostream:1020:1: note: 'std::endl' declared here
+endl(basic_ostream<_CharT, _Traits>& __os)
+^
+2 errors generated.
+make: *** [test.o] Error 1
+17:57:41 **** Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../Factory.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Factory.d" -MT"Factory.d" -o "Factory.o" "../Factory.cpp"
+Finished building: ../Factory.cpp
+ 
+Building file: ../Pathfinder.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Pathfinder.d" -MT"Pathfinder.d" -o "Pathfinder.o" "../Pathfinder.cpp"
+Finished building: ../Pathfinder.cpp
+ 
+Building target: 235_lab05
+Invoking: MacOS X C++ Linker
+g++  -o "235_lab05"  ./Factory.o ./Pathfinder.o   
+Undefined symbols for architecture x86_64:
+  "_main", referenced from:
+     implicit entry/start for main executable
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [235_lab05] Error 1
+18:05:59 **** Incremental Build of configuration Debug for project 235_lab05 ****
+make all 
+Building file: ../test.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test.d" -MT"test.d" -o "test.o" "../test.cpp"
+Finished building: ../test.cpp
+ 
+Building target: 235_lab05
+Invoking: MacOS X C++ Linker
+g++  -o "235_lab05"  ./Factory.o ./Pathfinder.o ./test.o   
+Finished building target: 235_lab05
+ 
+18:06:42 **** Incremental Build of configuration Debug for project 235_lab05 ****
+make all 
+make: Nothing to be done for `all'.

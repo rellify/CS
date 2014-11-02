@@ -49,8 +49,5 @@ int main() {
 
 	cout << "GCD of 24 and 4 is " << GCD(24, 4) << endl;
 
-
-
-
 	return 0;
 }
