@@ -9,20 +9,27 @@
 using namespace std;
 
 class Team {
-private:
 public:
-	Team();
-	~Team();
 	Person* head;
 	int size;
-	void addPerson(string name, int strength, int speed);
+	Team();
+	~Team();
 	void printTeam();
 	void printInfo();
+	void shuffleTeam();
+	void addHeadPerson(string name, int strength, int speed);
 	void removeHeadPerson();
+	void remove(string name);
+	void insertAfter(string name, string newName, int strength, int speed);
+	void insertBetween(string name, string newName, int strength, int speed);
 	string headName();
+	string nextName(string name);
 	int headStrength();
 	int headSpeed();
+	int strengthAt(string name);
+	int speedAt(string name);
 	int getSize();
+	bool search(string name);
 	bool empty();
 };
 
