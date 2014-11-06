@@ -16,7 +16,7 @@ public:
 	Person* leftPerson;
 	Person* rightPerson;
 	Person(string the_name, int the_strength, int the_speed);
-	~Person();	
+	~Person();
 };
 
 #endif 

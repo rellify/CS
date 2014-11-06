@@ -4,7 +4,6 @@
 #include <iostream>
 #include <fstream>
 #include "Team.h"
-#include "Person.h"
 
 void printMenu() {
    cout << "------------------" << endl;
@@ -44,7 +43,7 @@ int main() {
          cin >> selection;
       }
 
-      // Create roster
+      // 1. Create roster
 
       if (selection == "1") { 
          fstream file;
@@ -66,17 +65,73 @@ int main() {
                roster.addPerson(name, strength, speed);
             }
          }
+         cout << "Roster imported." << endl;
       }
 
-      // View roster
+      // 2. View roster
 
-      if (selection == "2") {
+      else if (selection == "2") {
          if (roster.empty()) {
             cout << "Roster Empty" << endl;
          }
          else {
+            cout << "Current roster: ";
             roster.printTeam();
          }
+      }
+
+      // 3. Shuffle roster
+
+      else if (selection == "3") {
+
+      }
+
+      // 4. Create teams
+
+      else if (selection == "4") {
+         if (roster.getSize() < 4) {
+            cout << "Error: roster size too small (current size = " 
+               << roster.getSize() << ")." << endl;
+         }
+         else {
+            for (int i = roster.getSize()/2; i > 0; i--) {
+               a_team.addPerson(roster.headName(), roster.headStrength(), 
+                  roster.headSpeed());
+               roster.removeHeadPerson();
+               b_team.addPerson(roster.headName(), roster.headStrength(), 
+                  roster.headSpeed());
+               roster.removeHeadPerson();
+            }
+            cout << "Teams created." << endl;
+         }
+      }
+
+      // 5. View teams
+
+      else if (selection == "5") {
+         if (a_team.empty()) {
+            cout << "Teams empty." << endl;
+         }
+         else {
+            cout << endl << "Team A:" << endl << endl;
+            a_team.printInfo();
+            cout << endl << "Team B:" << endl << endl;
+            b_team.printInfo();
+         }
+      }
+
+      // 6. User play
+
+      else if (selection == "6") {
+         cout << endl << "Team A:" << endl << endl;
+         a_team.printTeam();
+         cout << endl << "Person to call over: ";
+      }
+
+      // 7. Auto play
+
+      else if (selection == "7") {
+         
       }
    }
    return 0;

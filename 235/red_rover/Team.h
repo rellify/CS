@@ -14,8 +14,15 @@ public:
 	Team();
 	~Team();
 	Person* head;
-	void addPerson(string the_name, int the_strength, int the_speed);
+	int size;
+	void addPerson(string name, int strength, int speed);
 	void printTeam();
+	void printInfo();
+	void removeHeadPerson();
+	string headName();
+	int headStrength();
+	int headSpeed();
+	int getSize();
 	bool empty();
 };
 
