@@ -50,7 +50,7 @@ int main() {
          string file_name;
          cout << "Name of file: ";
          cin >> file_name;
-         file.open(file_name);
+         file.open(file_name.c_str());
          if (!file) {
             cout << "Error: invalid file name." << endl;
          }
