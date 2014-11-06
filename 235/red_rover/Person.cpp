@@ -11,8 +11,4 @@ Person::Person(string the_name, int the_strength, int the_speed) {
 	rightPerson = NULL;
 }
 
-Person::~Person() {
-	while (head != NULL) {
-		removeHeadPerson();
-	}
-}
+Person::~Person() {}

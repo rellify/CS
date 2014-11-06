@@ -22,6 +22,7 @@ public:
 	void remove(string name);
 	void insertAfter(string name, string newName, int strength, int speed);
 	void insertBetween(string name, string newName, int strength, int speed);
+	void clear();
 	string headName();
 	string nextName(string name);
 	int headStrength();

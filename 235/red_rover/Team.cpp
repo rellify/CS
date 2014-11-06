@@ -12,7 +12,9 @@ Team::Team() {
 	size = 0;
 }
 
-Team::~Team() {}
+Team::~Team() {
+	clear();
+}
 
 void Team::printTeam() {
 	Person* go = head;
@@ -211,6 +213,12 @@ string Team::nextName(string name) {
 		go = go->rightPerson;
 	}
 	return "";
+}
+
+void Team::clear() {
+	while (head != NULL) {
+		removeHeadPerson();
+	}
 }
 
 int Team::headStrength() {
