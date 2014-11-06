@@ -83,6 +83,7 @@ void Team::addHeadPerson(string name, int strength, int speed) {
 		previous->rightPerson = newPerson;
 		newPerson->leftPerson = previous;
 		size++;
+		newPerson = NULL;
 		previous = NULL;
 		go = NULL;
 		return;
