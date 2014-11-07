@@ -23,7 +23,6 @@ void Team::printTeam() {
 		go = go->rightPerson;
 	}
 	cout << go->name << endl;
-	cout << "(size = " << size << ")" << endl;
 	go = NULL;
 }
 
@@ -213,6 +212,17 @@ string Team::nextName(string name) {
 		go = go->rightPerson;
 	}
 	return "";
+}
+
+string Team::getRandomPerson() {
+	int random_number = rand() % size;
+	Person* go = head;
+	for (int i = 0; i < random_number; i++) {
+		go = go->rightPerson;			
+	}
+	string temp_name = go->name;
+	go = NULL;
+	return temp_name;
 }
 
 void Team::clear() {

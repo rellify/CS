@@ -123,106 +123,192 @@ int main() {
       // 6. User play
 
       else if (selection == "6") {
-         while (a_team.getSize() > 1 && b_team.getSize() > 1) {
-
-            // 'A' team running round
-
-            string a_select;
-            cout << endl << "Team A: ";
-            a_team.printTeam();
-            cout << endl << "Call someone over: ";
-            cin >> a_select;
-            while (!a_team.search(a_select)) {
-               cout << "Please select a valid person: ";
-               cin >> a_select;
-            }
-            string b_select;
-            cout << endl << "Team B: ";
-            b_team.printTeam();
-            cout << endl << "Who to run at: ";
-            cin >> b_select;
-            while (!b_team.search(b_select)) {
-               cout << "Please select a valid person: ";
-               cin >> b_select;
-            }
-            int run_speed_strength = a_team.speedAt(a_select) + a_team.strengthAt(a_select);
-            int link_strength = b_team.strengthAt(b_select) + b_team.strengthAt(b_team.nextName(b_select));
-            string link_loss;
-            if (run_speed_strength > link_strength) {
-               if (b_team.strengthAt(b_select) > b_team.strengthAt(b_team.nextName(b_select))) {
-                  link_loss = b_select;
-               }
-               else {
-                  link_loss = b_team.nextName(b_select);
-               }
-               cout << "Link broken, 'B' team loses "<< link_loss << "." << endl;
-               a_team.insertAfter(a_select, link_loss, b_team.strengthAt(link_loss), b_team.speedAt(link_loss));
-               b_team.remove(link_loss);
-            }
-            else {
-               cout << "Link not broken, 'A' team loses " << a_select << "." << endl;
-               b_team.insertBetween(b_select, a_select, a_team.strengthAt(a_select), a_team.speedAt(a_select));
-               a_team.remove(a_select);
-            }
-
-            // Check in between rounds for a winner (so you don't have a case when size == 1 but you keep on going)
-
-            if (a_team.getSize() == 1 || b_team.getSize() == 1) {
-               break;
-            }
-
-            // 'B' team running round
-
-            cout << endl << "Team B: ";
-            b_team.printTeam();
-            cout << endl << "Call someone over: ";
-            cin >> b_select;
-            while (!b_team.search(b_select)) {
-               cout << "Please select a valid person: ";
-               cin >> b_select;
-            }
-            cout << endl << "Team A: ";
-            a_team.printTeam();
-            cout << endl << "Who to run at: ";
-            cin >> a_select;
-            while (!a_team.search(a_select)) {
-               cout << "Please select a valid person: ";
-               cin >> a_select;
-            }
-            run_speed_strength = b_team.speedAt(b_select) + b_team.strengthAt(b_select);
-            link_strength = a_team.strengthAt(a_select) + a_team.strengthAt(a_team.nextName(a_select));
-            if (run_speed_strength > link_strength) {
-               if (a_team.strengthAt(a_select) > a_team.strengthAt(a_team.nextName(a_select))) {
-                  link_loss = a_select;
-               }
-               else {
-                  link_loss = a_team.nextName(a_select);
-               }
-               cout << "Link broken, 'A' team loses " << link_loss << "." << endl;
-               b_team.insertAfter(b_select, link_loss, a_team.strengthAt(link_loss), a_team.speedAt(link_loss));
-               a_team.remove(link_loss);
-            }
-            else {
-               cout << "Link not broken, 'B' team loses " << b_select << "." << endl;
-               a_team.insertBetween(a_select, b_select, b_team.strengthAt(b_select), b_team.speedAt(b_select));
-               b_team.remove(b_select);
-            }
-         }
-
-         // End of game
-
-         if (a_team.getSize() == 1) {
-            cout << endl << "'B' Team Wins!" << endl;
+         if (a_team.getSize() < 2 || b_team.getSize() < 2) {
+            cout << "Teams too small." << endl;
          }
          else {
-            cout << endl << "'A' Team Wins!" << endl;
+            while (a_team.getSize() > 1 && b_team.getSize() > 1) {
+               // 'A' team running round
+
+               string a_select;
+               cout << endl << "Team A: ";
+               a_team.printTeam();
+               cout << endl << "Call someone over: ";
+               cin >> a_select;
+               while (!a_team.search(a_select)) {
+                  cout << "Please select a valid person: ";
+                  cin >> a_select;
+               }
+               string b_select;
+               cout << endl << "Team B: ";
+               b_team.printTeam();
+               cout << endl << "Who to run at: ";
+               cin >> b_select;
+               while (!b_team.search(b_select)) {
+                  cout << "Please select a valid person: ";
+                  cin >> b_select;
+               }
+               int run_speed_strength = a_team.speedAt(a_select) + a_team.strengthAt(a_select);
+               int link_strength = b_team.strengthAt(b_select) + b_team.strengthAt(b_team.nextName(b_select));
+               string link_loss;
+               if (run_speed_strength > link_strength) {
+                  if (b_team.strengthAt(b_select) > b_team.strengthAt(b_team.nextName(b_select))) {
+                     link_loss = b_select;
+                  }
+                  else {
+                     link_loss = b_team.nextName(b_select);
+                  }
+                  cout << "Link broken, 'B' team loses "<< link_loss << "." << endl;
+                  a_team.insertAfter(a_select, link_loss, b_team.strengthAt(link_loss), b_team.speedAt(link_loss));
+                  b_team.remove(link_loss);
+               }
+               else {
+                  cout << "Link not broken, 'A' team loses " << a_select << "." << endl;
+                  b_team.insertBetween(b_select, a_select, a_team.strengthAt(a_select), a_team.speedAt(a_select));
+                  a_team.remove(a_select);
+               }
+
+               // Check in between rounds for a winner (so you don't have a case when size == 1 but you keep on going)
+
+               if (a_team.getSize() == 1 || b_team.getSize() == 1) {
+                  break;
+               }
+
+               // 'B' team running round
+
+               cout << endl << "Team B: ";
+               b_team.printTeam();
+               cout << endl << "Call someone over: ";
+               cin >> b_select;
+               while (!b_team.search(b_select)) {
+                  cout << "Please select a valid person: ";
+                  cin >> b_select;
+               }
+               cout << endl << "Team A: ";
+               a_team.printTeam();
+               cout << endl << "Who to run at: ";
+               cin >> a_select;
+               while (!a_team.search(a_select)) {
+                  cout << "Please select a valid person: ";
+                  cin >> a_select;
+               }
+               run_speed_strength = b_team.speedAt(b_select) + b_team.strengthAt(b_select);
+               link_strength = a_team.strengthAt(a_select) + a_team.strengthAt(a_team.nextName(a_select));
+               if (run_speed_strength > link_strength) {
+                  if (a_team.strengthAt(a_select) > a_team.strengthAt(a_team.nextName(a_select))) {
+                     link_loss = a_select;
+                  }
+                  else {
+                     link_loss = a_team.nextName(a_select);
+                  }
+                  cout << "Link broken, 'A' team loses " << link_loss << "." << endl;
+                  b_team.insertAfter(b_select, link_loss, a_team.strengthAt(link_loss), a_team.speedAt(link_loss));
+                  a_team.remove(link_loss);
+               }
+               else {
+                  cout << "Link not broken, 'B' team loses " << b_select << "." << endl;
+                  a_team.insertBetween(a_select, b_select, b_team.strengthAt(b_select), b_team.speedAt(b_select));
+                  b_team.remove(b_select);
+               }
+            }
+
+            // End of game
+
+            if (a_team.getSize() == 1) {
+               cout << endl << "'B' Team Wins!" << endl;
+            }
+            else {
+               cout << endl << "'A' Team Wins!" << endl;
+            }
          }
       }
 
       // 7. Auto play
 
       else if (selection == "7") {
-         
+         cout << endl;
+
+         if (a_team.getSize() < 2 || b_team.getSize() < 2) {
+            cout << "Team size too small." << endl;
+         }
+         else {
+            while (a_team.getSize() > 1 && b_team.getSize() > 1) {
+
+               // 'A' team running round
+
+               cout << "'A' Team: ";
+               a_team.printTeam();
+               cout << "'B' Team: ";
+               b_team.printTeam();
+               string a_select = a_team.getRandomPerson();
+               string b_select = b_team.getRandomPerson();
+               int run_speed_strength = a_team.speedAt(a_select) + a_team.strengthAt(a_select);
+               int link_strength = b_team.strengthAt(b_select) + b_team.strengthAt(b_team.nextName(b_select));
+               string link_loss;
+               if (run_speed_strength > link_strength) {
+                  if (b_team.strengthAt(b_select) > b_team.strengthAt(b_team.nextName(b_select))) {
+                     link_loss = b_select;
+                  }
+                  else {
+                     link_loss = b_team.nextName(b_select);
+                  }
+                  cout << endl << "Link broken, 'B' team loses "<< link_loss << "." << endl << endl;;
+                  a_team.insertAfter(a_select, link_loss, b_team.strengthAt(link_loss), b_team.speedAt(link_loss));
+                  b_team.remove(link_loss);
+               }
+               else {
+                  cout << endl << "Link not broken, 'A' team loses " << a_select << "." << endl << endl;
+                  b_team.insertBetween(b_select, a_select, a_team.strengthAt(a_select), a_team.speedAt(a_select));
+                  a_team.remove(a_select);
+               }
+               
+               // Check in between rounds for a winner (so you don't have a case when size == 1 but you keep on going)
+               
+               if (a_team.getSize() == 1 || b_team.getSize() == 1) {
+                  break;
+               }
+
+               // 'B' team running round
+
+               cout << "'A' Team: ";
+               a_team.printTeam();
+               cout << "'B' Team: ";
+               b_team.printTeam();
+               a_select = a_team.getRandomPerson();
+               b_select = b_team.getRandomPerson();
+               run_speed_strength = b_team.speedAt(b_select) + b_team.strengthAt(b_select);
+               link_strength = a_team.strengthAt(a_select) + a_team.strengthAt(a_team.nextName(a_select));
+               if (run_speed_strength > link_strength) {
+                  if (a_team.strengthAt(a_select) > a_team.strengthAt(a_team.nextName(a_select))) {
+                     link_loss = a_select;
+                  }
+                  else {
+                     link_loss = a_team.nextName(a_select);
+                  }
+                  cout << endl << "Link broken, 'A' team loses " << link_loss << "." << endl << endl;
+                  b_team.insertAfter(b_select, link_loss, a_team.strengthAt(link_loss), a_team.speedAt(link_loss));
+                  a_team.remove(link_loss);
+               }
+               else {
+                  cout << endl << "Link not broken, 'B' team loses " << b_select << "." << endl << endl;
+                  a_team.insertBetween(a_select, b_select, b_team.strengthAt(b_select), b_team.speedAt(b_select));
+                  b_team.remove(b_select);
+               }
+            }
+
+            // End of game
+
+            cout << "'A' Team: ";
+            a_team.printTeam();
+            cout << "'B' Team: ";
+            b_team.printTeam();
+            if (a_team.getSize() == 1) {
+               cout << endl << "'B' Team Wins!" << endl;
+            }
+            else {
+               cout << endl << "'A' Team Wins!" << endl;
+            }
+         }
       }
    }
    return 0;

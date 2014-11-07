@@ -25,6 +25,7 @@ public:
 	void clear();
 	string headName();
 	string nextName(string name);
+	string getRandomPerson();
 	int headStrength();
 	int headSpeed();
 	int strengthAt(string name);
