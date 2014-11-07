@@ -1,6 +1,6 @@
-18:43:48 **** Incremental Build of configuration Debug for project 235_lab05 ****
+17:31:00 **** Incremental Build of configuration Debug for project 235_lab05 ****
 make all 
 make: Nothing to be done for `all'.
 
-18:43:48 Build Finished (took 58ms)
+17:31:00 Build Finished (took 62ms)
 

@@ -1,5 +1,5 @@
 Factory.d: ../Factory.cpp ../Factory.h ../BSTInterface.h \
-  ../NodeInterface.h
+ ../NodeInterface.h
 
 ../Factory.h:
 
