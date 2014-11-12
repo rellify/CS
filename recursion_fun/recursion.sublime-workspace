@@ -4,6 +4,66 @@
 		"selected_items":
 		[
 			[
+				"if",
+				"if_	if(…)"
+			],
+			[
+				"str",
+				"struct_	struct"
+			],
+			[
+				"round",
+				"Round"
+			],
+			[
+				"stre",
+				"strength"
+			],
+			[
+				"secon",
+				"second_save"
+			],
+			[
+				"sav",
+				"second_save"
+			],
+			[
+				"second",
+				"second_go"
+			],
+			[
+				"random",
+				"random_number"
+			],
+			[
+				"print",
+				"printTeam"
+			],
+			[
+				"new",
+				"newPerson"
+			],
+			[
+				"remov",
+				"removeHeadPerson"
+			],
+			[
+				"strent",
+				"strengthAt"
+			],
+			[
+				"stren",
+				"strengthAt"
+			],
+			[
+				"tem",
+				"temp_strength"
+			],
+			[
+				"the",
+				"the_name"
+			],
+			[
 				"file",
 				"file_name"
 			]
@@ -12,50 +72,40 @@
 	"buffers":
 	[
 		{
-			"file": "main.cpp",
+			"contents": "#include <iostream>\n\nusing namespace std;\n\n/**\n * Calculates exponents\n * @param  x\n * @param  n\n * @return\n */\nint exponent(int x, int n) {\n   if (n == 0) {\n      return 1;\n   }\n   else return x * exponent(x, n-1);\n}\nint main() {\n   int x;\n   int n;\n   cout << \"------------------------------\" << endl;\n   cout << \"x term = \";\n   cin >> x;\n   cout << \"n term = \";\n   cin >> n;\n   cout << x << \"^\" << n << \" = \" << exponent(x,n) << endl;\n   cout << \"------------------------------\" << endl;\n   return 0;\n}\n\n\n\n",
+			"file": "exponent.cpp",
+			"file_size": 440,
+			"file_write_time": 130599090210000000,
 			"settings":
 			{
-				"buffer_size": 1594,
+				"buffer_size": 509,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Person.cpp",
+			"file": "test.cpp",
 			"settings":
 			{
-				"buffer_size": 225,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Team.cpp",
+			"file": "/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 43,
+				"buffer_size": 155,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Person.h",
+			"contents": "#include <iostream>\n\n\n/**\n * [fibonacci description]\n * @param  n\n * @return\n */\nlong long fibonacci(long long n) {\n	if (n == 1 || n == 2) {\n		return 1;\n	}\n	else {\n		return (fibonacci(n - 1) + (fibonacci(n - 2))); \n	}\n}\n\nint main() {\n	long long n;\n	std::cout << \"n = \";\n	std::cin >> n;\n	while (n < 1) {\n		std::cout << \"Please enter a positive integer: \";\n		std::cin >> n;\n	}\n	long long result = fibonacci(n);\n	std::cout << \"Fibonacci sequence a (\" << n << \") = \" << result << \"\\n\";\n	return 0;\n}",
+			"file": "fibonacci.cpp",
+			"file_size": 434,
+			"file_write_time": 130599015420000000,
 			"settings":
 			{
-				"buffer_size": 282,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Team.h",
-			"settings":
-			{
-				"buffer_size": 43,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test.txt",
-			"settings":
-			{
-				"buffer_size": 96,
+				"buffer_size": 494,
 				"line_ending": "Unix"
 			}
 		}
@@ -67,11 +117,67 @@
 		"selected_items":
 		[
 			[
-				"instal",
+				"inst",
 				"Package Control: Install Package"
 			],
 			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"ext",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"extra",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"Extract",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"diab",
+				"Package Control: Disable Package"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Enable Linting"
+			],
+			[
 				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
 				"Package Control: Install Package"
 			],
 			[
@@ -130,14 +236,21 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/spencerwood/Documents/CS/235/lab06"
+		"/Users/spencerwood/Documents/CS/recursion_fun"
 	],
 	"file_history":
 	[
+		"/Users/spencerwood/Documents/CS/recursion_fun/hello.cpp",
+		"/Users/spencerwood/Documents/CS/recursion_fun/a.out",
+		"/Users/spencerwood/exponent.cpp",
+		"/Users/spencerwood/Documents/CS/recursion_fun/fibonacci.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/spencerwood/Documents/CS/235/red_rover/main.cpp",
+		"/Users/spencerwood/Documents/CS/235/red_rover/test.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/spencerwood/Documents/CS/235/red_rover/DoubleLinkedList.cpp",
 		"/Users/spencerwood/Documents/CS/235/red_rover/DoubleLinkedList.h",
 		"/Users/spencerwood/Documents/CS/235/red_rover/Person.cpp",
-		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/spencerwood/Documents/CS/235/lab06/Node.h",
 		"/Users/spencerwood/Documents/CS/235/lab06/BST.h",
 		"/Users/spencerwood/Documents/CS/235/lab06/BSTInterface.h",
@@ -189,7 +302,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -203,6 +316,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			">> ",
+			"addPerson",
+			"b_loss",
+			"();\n",
+			"\n	",
 			"choice",
 			"selection",
 			"ch",
@@ -217,6 +335,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"addHeadPerson",
+			"link_loss",
 			"selection",
 			"choice",
 			"selection",
@@ -231,24 +351,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "main.cpp",
+					"file": "exponent.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1594,
+						"buffer_size": 509,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1593,
-								1593
+								111,
+								111
 							]
 						],
 						"settings":
@@ -261,28 +381,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Person.cpp",
+					"file": "test.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 225,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								223,
-								223
+								0,
+								0
 							]
 						],
 						"settings":
 						{
+							"open_with_edit": true,
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -294,86 +415,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "Team.cpp",
+					"file": "/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 43,
+						"buffer_size": 155,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								43,
-								43
+								150,
+								150
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 3,
-					"file": "Person.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 282,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								274,
-								274
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "Team.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 43,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								43,
-								43
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -383,31 +442,32 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "test.txt",
+					"buffer": 3,
+					"file": "fibonacci.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 96,
+						"buffer_size": 494,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								57,
-								57
+								29,
+								52
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -430,18 +490,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -459,10 +512,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "redrover.sublime-project",
+	"project": "recursion.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -494,6 +547,10 @@
 		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"~/Documents/CS/235/red_rover/redrover.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -513,7 +570,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 189.0,
+	"side_bar_width": 214.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
