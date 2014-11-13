@@ -1,1 +1,23 @@
-/Users/spencerwood/Documents/CS/235/lab06/BST.h
+#ifndef BST_H_
+#define BST_H_
+
+#include "BSTInterface.h"
+#include "Node.h"
+
+class BST : public BSTInterface {
+public:
+	BST();
+	~BST();
+
+	Node* root;
+
+	NodeInterface* getRootNode();
+	Node* recursiveAdd(Node* parent, int data);
+	bool add(int data);
+	bool find(int data);
+	bool find(Node* parent, int data);
+	bool remove(int data);
+	void clear();
+};
+
+#endif
