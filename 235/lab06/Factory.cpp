@@ -16,5 +16,5 @@
 */
 BSTInterface * Factory::getBST()
 {
-	return BST;//Modify this line
+	return new BST();//Modify this line
 }

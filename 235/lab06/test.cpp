@@ -1,6 +1,11 @@
-#include "Node.cpp"
+#include <iostream>
+#include "BST.h"
 
 int main() {
-	cout << "Lab 06 test file----------" << endl;
+	BST test;
+	test.add(4);
+	test.add(7);
+	test.add(4);
+	test.add(6);
 	return 0;
 }

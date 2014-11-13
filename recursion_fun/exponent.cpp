@@ -2,12 +2,7 @@
 
 using namespace std;
 
-/**
- * Calculates x^n
- * @param   x  operand
- * @param   n  power
- * @return     the answer
- */
+/// Calculates x^n 
 int exponent(int x, int n) {
    if (n == 0) {
       return 1;

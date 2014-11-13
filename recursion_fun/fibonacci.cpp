@@ -1,5 +1,13 @@
 #include <iostream>
 
+
+/**
+ * Calculates a Fibonacci sequence of a given term
+ *
+ * @param   n  user given term
+ *
+ * @return     the answer
+ */
 long long fibonacci(long long n) {
 	if (n == 1 || n == 2) {
 		return 1;

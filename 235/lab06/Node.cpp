@@ -12,10 +12,10 @@ int Node::getData() {
 	return data;
 }
 
-NodeInterface * Node::getLeftChild() {
+NodeInterface* Node::getLeftChild() {
 	return leftChild;
 }
 
-NodeInterface * Node::getRightChild() {
+NodeInterface* Node::getRightChild() {
 	return rightChild;
 }

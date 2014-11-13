@@ -1,20 +1,23 @@
 #ifndef BST_H_
 #define BST_H_
 
-#pragma once
-
 #include "BSTInterface.h"
+#include "Node.h"
 
 class BST : public BSTInterface {
 public:
-	Node* root;
-
 	BST();
 	~BST();
-	NodeInterface * getRootNode();
+
+	Node* root;
+
+	NodeInterface* getRootNode();
+	Node* recursiveAdd(Node* parent, int data);
 	bool add(int data);
+	bool find(int data);
+	bool find(Node* parent, int data);
 	bool remove(int data);
-	bool remove(int data);
+	void clear();
 };
 
 #endif
