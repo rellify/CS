@@ -3,9 +3,9 @@
 
 int main() {
 	BST test;
-	test.add(4);
-	test.remove(4);
-	test.add(6);
-	test.remove(4);	
+	test.add(1);
+	test.add(2);
+	test.remove(2);
+	test.add(1);
 	return 0;
 }

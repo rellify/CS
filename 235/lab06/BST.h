@@ -8,9 +8,7 @@ class BST : public BSTInterface {
 public:
 	BST();
 	~BST();
-
 	Node* root;
-
 	NodeInterface* getRootNode();
 	Node* recursiveAdd(Node* parent, int data);
 	bool add(int data);
@@ -18,6 +16,7 @@ public:
 	bool find(Node* parent, int data);
 	bool remove(int data);
 	Node* recursiveRemove(Node* parent, int data);
+	Node* getMax(Node* parent);
 	void clear();
 };
 
