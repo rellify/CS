@@ -41,9 +41,9 @@ Node* BST::recursiveAdd(Node* parent, int data) {
 		Node* newNode = new Node(data);
 		parent = newNode;
 	} else if (data < parent->data) {
-		parent->leftChild = recursiveAdd(parent->leftChild, data);
+		parent->left_child = recursiveAdd(parent->left_child, data);
 	} else {
-		parent->rightChild = recursiveAdd(parent->rightChild, data);
+		parent->right_child = recursiveAdd(parent->right_child, data);
 	}
 	return parent;
 }
@@ -58,9 +58,9 @@ bool BST::find(Node* parent, int data) {
 	} else if (parent->data == data) {
 		return true;
 	} else if (data < parent->data) {
-		return find(parent->leftChild, data);
+		return find(parent->left_child, data);
 	} else {
-		return find(parent->rightChild, data);
+		return find(parent->right_child, data);
 	}
 }
 
@@ -71,7 +71,43 @@ bool BST::find(Node* parent, int data) {
  * @return false if remove is unsuccessful(i.e. the int is not in the tree)
  */
 bool BST::remove(int data) {
-	return true;
+	if (root == NULL) {
+		//
+		std::cout << data << " not removed, tree is empty." << "\n";
+		//
+		return false;
+	} else if (!find(data)) {
+		//
+		std::cout << data << " not in tree, remove failed."<< "\n";
+		//
+		return false;
+	} else {
+		root = recursiveRemove(root, data);
+		//
+		std::cout << data << " removed successfully." << "\n";
+		//
+		return true;
+	}
+}
+
+Node* BST::recursiveRemove(Node* parent, int data) {
+	if (data < parent->data) {
+		parent = recursiveRemove(parent->left_child, data);
+	} else if (data > parent->data) {
+		parent = recursiveRemove(parent->right_child, data);
+	} else {
+		if (parent->left_child == NULL && parent->right_child == NULL) {
+			// Case 1: Node to be deleted is a leaf node
+			delete parent;
+			parent = NULL;
+		} else if (parent->left_child) {
+			// Case 2: Node to be deleted has only a left child
+			Node* temp = parent;
+			parent = parent->left_child;
+			delete temp;
+		}
+	}
+	return parent;
 }
 
 /**

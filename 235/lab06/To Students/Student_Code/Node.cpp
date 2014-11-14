@@ -2,8 +2,8 @@
 
 Node::Node(int value) {
 	data = value;
-	leftChild = NULL;
-	rightChild = NULL;
+	left_child = NULL;
+	right_child = NULL;
 }
 
 Node::~Node() {}
@@ -13,9 +13,9 @@ int Node::getData() {
 }
 
 NodeInterface* Node::getLeftChild() {
-	return leftChild;
+	return left_child;
 }
 
 NodeInterface* Node::getRightChild() {
-	return rightChild;
+	return right_child;
 }

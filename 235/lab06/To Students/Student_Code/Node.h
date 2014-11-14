@@ -11,8 +11,8 @@ public:
 	~Node();
 
 	int data;
-	Node* leftChild;
-	Node* rightChild;
+	Node* left_child;
+	Node* right_child;
 
 	int getData();
 	NodeInterface * getLeftChild();
