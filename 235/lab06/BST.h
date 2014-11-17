@@ -12,7 +12,7 @@ public:
 	NodeInterface* getRootNode();
 	Node* recursiveAdd(Node* parent, int data);
 	bool add(int data);
-	bool find(int data);
+	void find(int data);
 	bool find(Node* parent, int data);
 	bool remove(int data);
 	Node* recursiveRemove(Node* parent, int data);

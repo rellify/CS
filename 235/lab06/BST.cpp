@@ -5,7 +5,6 @@ BST::BST() {
 }
 
 BST::~BST() {
-	clear();
 }
 
 NodeInterface* BST::getRootNode() {
@@ -14,11 +13,11 @@ NodeInterface* BST::getRootNode() {
 
 bool BST::add(int data) {
 	if (find(root, data)) {
-		std::cout << data << " not added, already exists." << "\n";
+		std::cout << data << " not added, already exists." << endl;
 		return false;
 	}
 	root = recursiveAdd(root, data);
-	std::cout << data << " added successfully." << "\n";
+	std::cout << data << " added successfully." << endl;
 	return true;
 }
 
@@ -34,8 +33,12 @@ Node* BST::recursiveAdd(Node* parent, int data) {
 	return parent;
 }
 
-bool BST::find(int data) {
-	return find(root, data);
+void BST::find(int data) {
+	if (find(root, data)) {
+		std::cout << data << " found in tree." << endl;
+	} else {
+		std::cout << data << " not found in tree." << endl;
+	}
 }
 
 bool BST::find(Node* parent, int data) {
@@ -52,15 +55,20 @@ bool BST::find(Node* parent, int data) {
 
 bool BST::remove(int data) {
 	if (root == NULL) {
-		std::cout << data << " tree is empty, remove failed." << "\n";
+		std::cout << data << " tree is empty, remove failed." << endl;
 		return false;
 	} else if (!find(root, data)) {
-		std::cout << data << " not in tree, remove failed."<< "\n";
+		std::cout << data << " not in tree, remove failed."<< endl;
 		return false;
 	} else {
 		root = recursiveRemove(root, data);
-		std::cout << data << " removed successfully." << "\n";
-		return true;
+		if (!find(root, data)) {
+			std::cout << data << " removed successfully." << endl;
+			return true;
+		} else {
+			std::cout << data << " not removed successfully." << endl;
+			return false;
+		}
 	}
 }
 
@@ -69,7 +77,7 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 		parent->left_child = recursiveRemove(parent->left_child, data);
 	} else if (data > parent->data) {
 		parent->right_child = recursiveRemove(parent->right_child, data);
-	} else {
+	} else if (data == parent->data) {
 		if (parent->left_child == NULL && parent->right_child == NULL) {
 			// Case 1: leaf node
 			delete parent;
@@ -79,18 +87,18 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 			Node* temp = parent;
 			parent = parent->right_child;
 			delete temp;
-		} else if (getMax(parent->left_child)->right_child == NULL) {
-			// Case 3: predecessor to node has no right child
+		} else if (getMax(parent->left_child)->left_child == NULL) {
+			// Case 3: predecessor to node has no left child
 			Node* predecessor = getMax(parent->left_child);
 			parent->data = predecessor->data;
 			delete predecessor;
-		} else if (getMax(parent->left_child)->right_child != NULL) {
-			// Case 4: predecessor to node has right child
+		} else if (getMax(parent->left_child)->left_child != NULL) {
+			// Case 4: predecessor to node has left child
 			Node* predecessor = getMax(parent->left_child);
-			Node* predecessor_left = predecessor->left_child;
 			parent->data = predecessor->data;
-			predecessor->data = predecessor_left->data;
-			delete predecessor_left;
+			Node* temp = predecessor;
+			predecessor = predecessor->left_child;
+			delete temp;
 		}
 	}
 	return parent;
