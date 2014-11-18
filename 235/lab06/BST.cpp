@@ -76,40 +76,35 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 	if (data < parent->data) {
 		parent->left_child = recursiveRemove(parent->left_child, data);
 	} else if (data > parent->data) {
+
 		parent->right_child = recursiveRemove(parent->right_child, data);
 	} else if (data == parent->data) {
-		if (parent->left_child == NULL && parent->right_child == NULL) {
-			// Case 1: leaf node
-			delete parent;
-			parent = NULL;
+		if (parent->left_child != NULL) {
+			// Case 1: has left child
+			replaceIOP(parent);
 		} else if (parent->left_child == NULL) {
-			// Case 2: node lacks a left child (no predecessor)
+			// Case 2: no left child
 			Node* temp = parent;
 			parent = parent->right_child;
-			delete temp;
-		} else if (getMax(parent->left_child)->left_child == NULL) {
-			// Case 3: predecessor to node has no left child
-			Node* predecessor = getMax(parent->left_child);
-			parent->data = predecessor->data;
-			delete predecessor;
-		} else if (getMax(parent->left_child)->left_child != NULL) {
-			// Case 4: predecessor to node has left child
-			Node* predecessor = getMax(parent->left_child);
-			parent->data = predecessor->data;
-			Node* temp = predecessor;
-			predecessor = predecessor->left_child;
 			delete temp;
 		}
 	}
 	return parent;
 }
 
-Node* BST::getMax(Node* parent) {
-	Node* go = parent;
-	while (go->right_child != NULL) {
-		go = go->right_child;
+void BST::replaceIOP(Node* parent) {
+	Node* IOP = parent->left_child;
+	Node* previous = NULL;
+	while (IOP->right_child != NULL) {
+		previous = IOP;
+		IOP = IOP->right_child;
 	}
-	return go;
+	Node* temp = IOP->left_child;
+	parent->data = IOP->data;
+	if (previous != NULL) {
+		previous->right_child = temp;
+	}
+	delete IOP;
 }
 
 void BST::clear() {

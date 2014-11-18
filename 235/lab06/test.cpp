@@ -43,5 +43,6 @@ int main() {
 	test.find(27);
 	test.find(29);
 	test.find(26);
+	test.clear();
 	return 0;
 }
