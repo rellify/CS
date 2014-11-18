@@ -10,8 +10,8 @@ public:
 	~BST();
 	Node* root;
 	NodeInterface* getRootNode();
-	Node* recursiveAdd(Node* parent, int data);
 	bool add(int data);
+	Node* recursiveAdd(Node* parent, int data);
 	void find(int data);
 	bool find(Node* parent, int data);
 	bool remove(int data);
