@@ -16,7 +16,7 @@ public:
 	bool find(Node* parent, int data);
 	bool remove(int data);
 	Node* recursiveRemove(Node* parent, int data);
-	Node* getIOP(Node* parent);
+	void replaceIOP(Node* parent);
 	void clear();
 };
 
