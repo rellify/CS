@@ -98,6 +98,7 @@ Node* BST::replaceIOP(Node* current, Node* parent) {
 		return current;
 	}
 	Node* temp = current->left_child;
+	parent->data = current->data;
 	delete current;
 	return temp;
 }
