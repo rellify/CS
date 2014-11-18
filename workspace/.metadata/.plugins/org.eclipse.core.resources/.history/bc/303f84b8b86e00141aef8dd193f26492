@@ -78,23 +78,9 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 	} else if (data > parent->data) {
 		parent->right_child = recursiveRemove(parent->right_child, data);
 	} else if (data == parent->data) {
-		if (parent->left_child != NULL) {
+		if (parent->left_child == NULL) {
 
-			// Case 1: has left child
-
-			Node* IOP = getIOP(parent);
-			Node* temp = IOP->left_child;
-			parent->data = IOP->data;
-			delete IOP;
-			IOP = temp;
-
-		} else if (parent->left_child == NULL) {
-
-			// Case 2: no left child
-
-			Node* temp = parent->right_child;
-			delete parent;
-			parent = temp;
+		} else if (parent->left_child != NULL) {
 
 		}
 	}
@@ -102,7 +88,7 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 }
 
 Node* BST::getIOP(Node* parent) {
-	Node* go = parent->left_child;
+	Node* go = parent;
 	while (go->right_child != NULL) {
 		go = go->right_child;
 	}

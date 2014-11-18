@@ -76,6 +76,7 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 	if (data < parent->data) {
 		parent->left_child = recursiveRemove(parent->left_child, data);
 	} else if (data > parent->data) {
+
 		parent->right_child = recursiveRemove(parent->right_child, data);
 	} else if (data == parent->data) {
 		if (parent->left_child != NULL) {
