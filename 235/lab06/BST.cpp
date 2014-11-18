@@ -9,6 +9,7 @@ BST::~BST() {
 
 NodeInterface* BST::getRootNode() {
 	return root;
+
 }
 
 bool BST::add(int data) {
@@ -76,13 +77,12 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 	if (data < parent->data) {
 		parent->left_child = recursiveRemove(parent->left_child, data);
 	} else if (data > parent->data) {
-
 		parent->right_child = recursiveRemove(parent->right_child, data);
-	} else if (data == parent->data) {
+	} else {
 		if (parent->left_child != NULL) {
 			// Case 1: has left child
-			replaceIOP(parent);
-		} else if (parent->left_child == NULL) {
+			parent->left_child = replaceIOP(parent->left_child, parent);
+		} else {
 			// Case 2: no left child
 			Node* temp = parent;
 			parent = parent->right_child;
@@ -92,19 +92,14 @@ Node* BST::recursiveRemove(Node* parent, int data) {
 	return parent;
 }
 
-void BST::replaceIOP(Node* parent) {
-	Node* IOP = parent->left_child;
-	Node* previous = NULL;
-	while (IOP->right_child != NULL) {
-		previous = IOP;
-		IOP = IOP->right_child;
+Node* BST::replaceIOP(Node* current, Node* parent) {
+	if (current->right_child != NULL) {
+		current->right_child = replaceIOP(current->right_child, parent);
+		return current;
 	}
-	Node* temp = IOP->left_child;
-	parent->data = IOP->data;
-	if (previous != NULL) {
-		previous->right_child = temp;
-	}
-	delete IOP;
+	Node* temp = current->left_child;
+	delete current;
+	return temp;
 }
 
 void BST::clear() {
