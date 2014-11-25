@@ -26,7 +26,7 @@ string GPA::querySet(string fileName) {
 
 string GPA::queryMap(string fileName) { 
 	return "";
-}zzsz
+}
 
 void GPA::clear() {
 }
