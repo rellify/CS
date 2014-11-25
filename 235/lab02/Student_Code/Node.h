@@ -35,10 +35,6 @@ public:
 		this->data = item;
 		this->next_node = NULL;
 	}
-
 };
-
-
-
 
 #endif /* NODE_H_ */
