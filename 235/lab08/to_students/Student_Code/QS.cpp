@@ -20,13 +20,6 @@ void QS::swap(int left, int right) {
 	array[right] = temp;
 }
 
-bool QS::outOfBounds(int left, int right) {
-	if (left < 0 || right > array_size - 1) {
-		return false;
-	}
-	return true;
-}
-
 void QS::sortAll() {
 	if (array_size != 0) {
 		pivot = partition(0, array_size - 1, medianOfThree(0, array_size - 1));
@@ -34,7 +27,7 @@ void QS::sortAll() {
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (left >= right) {
+	if (left >= right || left < 0 || right > array_size) {
 		// empty array/incorrect input
 		return -1;
 	} else if ((left - right) == 1) {
@@ -123,7 +116,7 @@ bool QS::createArray(int size) {
 	}
 	array = new int[size];
 	array_size = size;
-	for (int i = 0; i < array_size; i++) {
+	for (int i = 0; i < array_size - 1; i++) {
 		array[i] = 0;
 	}
 	return true;
@@ -131,5 +124,6 @@ bool QS::createArray(int size) {
 
 void QS::clear() {
 	delete[] array;
+	array_size = 0;
 	array = NULL;
 }
