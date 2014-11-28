@@ -47,7 +47,7 @@ int QS::medianOfThree(int left, int right) {
 			swap(left, pivot);
 		}
 //		cout << "Pivot " << array[pivot] << " median of three: " << getArray() 
-			<< "\n";
+//			<< "\n";
 		return pivot;
 	}
 }
@@ -69,7 +69,7 @@ int QS::partition(int left, int right, int pivotIndex) {
 			if (left < right) {
 				swap(left, right);
 //				cout << "Swapped " << array[left] << " with " << array[right]
-					<< ": " << getArray() << "\n";
+//					<< ": " << getArray() << "\n";
 			}
 		}
 		swap(pivotIndex, left);
