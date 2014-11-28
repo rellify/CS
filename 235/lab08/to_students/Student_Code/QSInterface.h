@@ -81,7 +81,9 @@ class QSInterface
 		virtual int partition(int left, int right, int pivotIndex) = 0;
 
 		/*
-		 * Gets the array of values and puts them into a string. For example: if my array 			 * looked like {5,7,2,9,0}, then the string to be returned would look like "5,7,2,9,0" 			 * with no trailing comma.
+		 * Gets the array of values and puts them into a string. For example: if my array 			 
+		 * looked like {5,7,2,9,0}, then the string to be returned would look like "5,7,2,9,0" 
+		 * with no trailing comma.
 		 *
 		 * Does nothing and returns an empty string, if the array is null or empty.
 		 *
