@@ -95,7 +95,7 @@ string QS::getArray() {
 		return "";
 	}
 	string result = "";
-	for (int i = 0; i < array_size - 1; i++) {
+	for (int i = 0; i < add_count; i++) {
 		stringstream convert;
 		convert << array[i];
 		result += convert.str() + ", ";
