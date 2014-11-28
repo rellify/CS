@@ -25,7 +25,7 @@ void QS::sortAll() {
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (array == NULL || left > right || left < 0 || right > array_size - 1) {
+	if (array == NULL || left >= right || left < 0 || right > array_size - 1) {
 		return -1;
 	} else if (left == right) {
 		// if only one cell 
@@ -116,14 +116,14 @@ void QS::addToArray(int value) {
 }
 
 bool QS::createArray(int size) {
-	if (size <= 0) {
+	if (size < 0) {
 		return false;
 	}
 	array = new int[size];
 	array_size = size;
-	for (int i = 0; i < array_size; i++) {
-		array[i] = 0;
-	}
+	// for (int i = 0; i < array_size; i++) {
+	// 	array[i] = 0;
+	// }
 	return true;
 }
 
