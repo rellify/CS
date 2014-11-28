@@ -24,32 +24,13 @@
 	"buffers":
 	[
 		{
-			"contents": "#include <sstream>\n#include \"Student.h\"\n\nStudent::Student(unsigned long long int new_ID, string new_name) {\n	ID = new_ID;\n	name = new_name;\n	grade_total = 0;\n	number_of_classes = 0;\n}\nStudent::~Student() {}\n\nunsigned long long int Student::getID() {\n	return ID;	\n}\n\nstring Student::getName() {\n	return name;\n}\n\nstring Student::getGPA() {\n	GPA = grade_total / number_of_classes;\n	stringstream convert;\n	convert << GPA;\n	string result = convert.str();\n	return result; \n}",
-			"file": "Student.cpp",
-			"file_size": 468,
-			"file_write_time": 130614227520000000,
+			"contents": "#include \"QS.h\"\n#include <sstream>\n\nusing namespace std;\n\nQS::QS() {\n	array_size = 0;\n	add_count = 0;\n	array = NULL;\n}\n\nQS::~QS() {\n	clear();\n}\n\nvoid QS::swap(int left, int right) {\n	int temp = array[left];\n	array[left] = array[right];\n	array[right] = temp;\n}\n\nvoid QS::sortAll() {\n\n}\n\nint QS::medianOfThree(int left, int right) {\n	int pivot = array_size / 2;\n	if (array[left] > array[pivot]) {\n		swap(left, pivot);\n	}\n	if (array[pivot] > array[right]) {\n		swap(right, pivot);\n	}\n	if (array[left] > array[pivot]) {\n		swap(left, pivot);\n	}	\n	return 0;\n}\n\nint QS::partition(int left, int right, int pivotIndex) {\n	return 0;\n}\n\nstring QS::getArray() {\n	if (array_size == 0) {\n		return \"\";\n	}\n	string result = \"\";\n	for (int i = 0; i < array_size - 1; i++) {\n		stringstream convert;\n		convert << array[i];\n		result += convert.str() + \", \";\n	}\n	stringstream convert;\n	convert << array[array_size - 1];\n	result += convert.str();\n	return result;\n}\n\nint QS::getSize() {\n	return array_size;\n}\n\nvoid QS::addToArray(int value) {\n	if (add_count != array_size) {\n		array[add_count] = value;\n		add_count++;\n	} else if (array_size == 0) {\n		cout << \"Array size 0, value not added.\" << \"\\n\";\n	} else {\n		cout << \"Array full, value not added.\" << \"\\n\";\n	}\n}\n\nbool QS::createArray(int size) {\n	if (size <= 0) {\n		return false;\n	}\n	array = new int[size];\n	array_size = size;\n	for (int i = 0; i < array_size; i++) {\n		array[i] = 0;\n	}\n	return true;\n}\n\nvoid QS::clear() {\n	delete[] array;\n	array = NULL;\n}",
+			"file": "QS.cpp",
+			"file_size": 1483,
+			"file_write_time": 130615451190000000,
 			"settings":
 			{
-				"buffer_size": 468,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "#include \"GPA.h\"\n#include <fstream>\n#include <iostream>\n\nGPA::GPA() {}\n\nGPA::~GPA() {}\n\nmap<unsigned long long int, StudentInterface*> GPA::getMap() {\n	return studentMap;\n}\n\nset<StudentInterface*, Comparator> GPA::getSet() {\n	return studentSet;\n}\n\nbool GPA::importStudents(string mapFileName, string setFileName) {\n	fstream map_file;\n	fstream set_file;\n	map_file.open(mapFileName.c_str());\n	set_file.open(setFileName.c_str());\n	if (!map_file || !set_file) {\n		cout << \"Invalid files\" << \"\\n\";\n		return false;\n	}\n	\n	return true;\n}\n\nbool GPA::importGrades(string fileName) {\n	return false;\n}\n\nstring GPA::querySet(string fileName) {\n	return \"\";\n}\n\nstring GPA::queryMap(string fileName) { \n	return \"\";\n}\n\nvoid GPA::clear() {\n}",
-			"file": "GPA.cpp",
-			"file_size": 722,
-			"file_write_time": 130614287260000000,
-			"settings":
-			{
-				"buffer_size": 723,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "_help-session.md",
-			"settings":
-			{
-				"buffer_size": 888,
+				"buffer_size": 1483,
 				"line_ending": "Unix"
 			}
 		},
@@ -57,47 +38,39 @@
 			"file": "test.cpp",
 			"settings":
 			{
-				"buffer_size": 320,
+				"buffer_size": 226,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "test_import.txt",
+			"file": "QS.h",
 			"settings":
 			{
-				"buffer_size": 55,
+				"buffer_size": 470,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "Student.h",
+			"file": "/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 505,
+				"buffer_size": 218,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "GPA.h",
+			"file": "QSInterface.h",
 			"settings":
 			{
-				"buffer_size": 564,
+				"buffer_size": 3460,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "GPAInterface.h",
+			"file": "help-session.md",
 			"settings":
 			{
-				"buffer_size": 5577,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "StudentInterface.h",
-			"settings":
-			{
-				"buffer_size": 1448,
+				"buffer_size": 1070,
 				"line_ending": "Unix"
 			}
 		}
@@ -105,9 +78,33 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 400.0,
+		"height": 374.0,
 		"selected_items":
 		[
+			[
+				"color",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colo",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colro",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colors",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"colorsc",
+				"Color Scheme Editor: Edit current color scheme"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
 			[
 				"in",
 				"Package Control: Install Package"
@@ -115,10 +112,6 @@
 			[
 				"rem",
 				"Package Control: Remove Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
 			],
 			[
 				"install",
@@ -209,7 +202,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 475.0
+		"width": 467.0
 	},
 	"console":
 	{
@@ -232,11 +225,26 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/spencerwood/Documents/cs-backup/235/lab07"
+		"/Users/spencerwood/Documents/cs-backup/235",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/to_students"
 	],
 	"file_history":
 	[
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/halflife (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-eighties.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-codeschool.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/base16-twilight.dark (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/dimmed-monokai (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Coffee_Dark_Roast (SL).tmTheme",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Monokai Soda (SL).tmTheme",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/QSInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/to_students/QS.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/Factory.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/Factory.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab08/lab08.sublime-project",
 		"/Users/spencerwood/Documents/cs-backup/235/lab07/To Students/test_import.txt",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/newline.sublime-snippet",
 		"/Users/spencerwood/Documents/cs-backup/235/lab07/_help-session.md",
@@ -336,6 +344,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"background",
+			"size",
+			"medianof",
 			"add",
 			"predecessor",
 			"predec",
@@ -357,6 +368,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"array_size",
 			"find",
 			"endl",
 			"find",
@@ -369,7 +381,7 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
@@ -380,19 +392,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Student.cpp",
+					"file": "QS.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 468,
+						"buffer_size": 1483,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								468,
-								468
+								143,
+								143
 							]
 						],
 						"settings":
@@ -403,28 +415,29 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "GPA.cpp",
+					"file": "test.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 723,
+						"buffer_size": 226,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								642,
-								642
+								226,
+								226
 							]
 						],
 						"settings":
 						{
+							"open_with_edit": true,
 							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -433,50 +446,28 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
 				{
 					"buffer": 2,
-					"file": "_help-session.md",
+					"file": "QS.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 888,
+						"buffer_size": 470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5,
-								5
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "test.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 320,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								320,
-								320
+								173,
+								173
 							]
 						],
 						"settings":
@@ -492,25 +483,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "test_import.txt",
+					"buffer": 3,
+					"file": "/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 55,
+						"buffer_size": 218,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10,
-								10
+								215,
+								215
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -518,125 +510,63 @@
 					},
 					"stack_index": 5,
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
+				},
+				{
+					"buffer": 4,
+					"file": "QSInterface.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								654,
+								654
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 2.0,
+						"translation.y": 374.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
 				{
 					"buffer": 5,
-					"file": "Student.h",
+					"file": "help-session.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 505,
+						"buffer_size": 1070,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								480,
-								480
+								43,
+								43
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"open_with_edit": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 49.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "GPA.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 564,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								551,
-								551
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "GPAInterface.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5577,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1582,
-								1582
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 40.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "StudentInterface.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1448,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								107,
-								107
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -688,10 +618,10 @@
 	{
 		"height": 0.0
 	},
-	"project": "map-set.sublime-project",
+	"project": "lab08.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -770,7 +700,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -778,7 +708,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 189.0,
+	"side_bar_width": 171.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
