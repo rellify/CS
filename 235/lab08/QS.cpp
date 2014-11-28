@@ -131,4 +131,5 @@ void QS::clear() {
 	delete[] array;
 	array = NULL;
 	array_size = 0;
+	add_count = 0;
 }
