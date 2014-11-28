@@ -48,8 +48,6 @@ int QS::medianOfThree(int left, int right) {
 		if (array[left] > array[pivot]) {
 			swap(left, pivot);
 		}
-//		cout << "Pivot " << array[pivot] << " median of three: " << getArray() 
-//			<< "\n";
 		return pivot;
 	}
 }
@@ -57,13 +55,13 @@ int QS::medianOfThree(int left, int right) {
 int QS::partition(int left, int right, int pivotIndex) {
 	if (array == NULL || left > right || left < 0 || right > array_size - 1
 			|| pivotIndex < left || pivotIndex > right) {
+		// check for bad input
 		return -1;
 	} else if ((right - left) > 1) {
 		// if partition is 3 or greater
 		swap(pivotIndex, right);
 		pivotIndex = right;
 		right--;
-//		cout << "Median swapped: " << getArray() << "\n";
 		while (left < right) {
 			while (array[left] < array[pivotIndex]) {
 				left++;
@@ -73,15 +71,12 @@ int QS::partition(int left, int right, int pivotIndex) {
 			}
 			if (left < right) {
 				swap(left, right);
-//				cout << "Swapped " << array[left] << " with " << array[right]
-//					<< ": " << getArray() << "\n";
 			}
 		}
 		swap(pivotIndex, left);
 		int temp = pivotIndex;
 		pivotIndex = left;
 		left = temp;
-//		cout << "Swapped " << array[temp] << " with " << array[left] << "\n";
 		partition(0, right, medianOfThree(0, right));
 		partition(pivotIndex + 1, left, medianOfThree(pivotIndex + 1, left));
 	}
