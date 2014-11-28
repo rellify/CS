@@ -10,7 +10,6 @@ public:
 
 	// methods
 	void swap(int left, int right);
-	bool outOfBounds(int left, int right);
 	void sortAll();
 	int medianOfThree(int left, int right);
 	int partition(int left, int right, int pivotIndex);
