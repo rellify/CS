@@ -116,7 +116,7 @@ void QS::addToArray(int value) {
 }
 
 bool QS::createArray(int size) {
-	if (size <= 0) {
+	if (size < 0) {
 		return false;
 	}
 	array = new int[size];
