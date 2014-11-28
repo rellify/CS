@@ -21,13 +21,15 @@ void QS::swap(int left, int right) {
 }
 
 void QS::sortAll() {
-	pivot = partition(0, array_size - 1, medianOfThree(0, array_size - 1));
+	if (array_size != 0) {
+		pivot = partition(0, array_size - 1, medianOfThree(0, array_size - 1));
+	}
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (left == right) {
-		// if only one cell 
-		return left;
+	if (left >= right || left < 0 || right > array_size) {
+		// empty array/incorrect input
+		return -1;
 	} else if ((left - right) == 1) {
 		// if two cells
 		if (array[left] > array[right]) {
@@ -51,7 +53,8 @@ int QS::medianOfThree(int left, int right) {
 }
 
 int QS::partition(int left, int right, int pivotIndex) {
-	if ((left - right) > 2) {
+	if ((right - left) > 1) {
+		// if partition is 3 or greater
 		swap(pivotIndex, right);
 		pivotIndex = right;
 		right--;
@@ -72,24 +75,26 @@ int QS::partition(int left, int right, int pivotIndex) {
 		int temp = pivotIndex;
 		pivotIndex = left;
 		left = temp;
+		// recursive call on right partition
 		partition(0, right, medianOfThree(0, right));
+		// recursive call on left partition
 		partition(pivotIndex + 1, left, medianOfThree(pivotIndex + 1, left));
 	}
 	return pivotIndex;
 }
 
 string QS::getArray() {
-	if (array_size == 0) {
-		return "";
-	}
 	string result = "";
-	for (int i = 0; i < array_size - 1; i++) {
+	if (array_size == 0) {
+		return result;
+	}
+	for (int i = 0; i < add_count - 1; i++) {
 		stringstream convert;
 		convert << array[i];
 		result += convert.str() + ", ";
 	}
 	stringstream convert;
-	convert << array[array_size - 1];
+	convert << array[add_count - 1];
 	result += convert.str();
 	return result;
 }
@@ -102,10 +107,6 @@ void QS::addToArray(int value) {
 	if (add_count != array_size) {
 		array[add_count] = value;
 		add_count++;
-	} else if (array_size == 0) {
-		cout << "Array size 0, value not added." << "\n";
-	} else {
-		cout << "Array full, value not added." << "\n";
 	}
 }
 
@@ -115,7 +116,7 @@ bool QS::createArray(int size) {
 	}
 	array = new int[size];
 	array_size = size;
-	for (int i = 0; i < array_size; i++) {
+	for (int i = 0; i < array_size - 1; i++) {
 		array[i] = 0;
 	}
 	return true;
@@ -123,5 +124,6 @@ bool QS::createArray(int size) {
 
 void QS::clear() {
 	delete[] array;
+	array_size = 0;
 	array = NULL;
 }

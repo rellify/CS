@@ -21,7 +21,7 @@ void QS::swap(int left, int right) {
 }
 
 void QS::sortAll() {
-	pivot = partition(0, add_count - 1, medianOfThree(0, add_count - 1));
+	pivot = partition(0, array_size - 1, medianOfThree(0, array_size - 1));
 }
 
 int QS::medianOfThree(int left, int right) {
@@ -45,20 +45,16 @@ int QS::medianOfThree(int left, int right) {
 		}
 		if (array[left] > array[pivot]) {
 			swap(left, pivot);
-		}
-//		cout << "Pivot " << array[pivot] << " median of three: " << getArray() 
-			<< "\n";
+		}	
 		return pivot;
 	}
 }
 
 int QS::partition(int left, int right, int pivotIndex) {
-	if ((right - left) > 1) {
-		// if partition is 3 or greater
+	if ((left - right) > 2) {
 		swap(pivotIndex, right);
 		pivotIndex = right;
 		right--;
-//		cout << "Median swapped: " << getArray() << "\n";
 		while (left < right) {
 			while (array[left] < array[pivotIndex]) {
 				left++;
@@ -68,15 +64,14 @@ int QS::partition(int left, int right, int pivotIndex) {
 			}
 			if (left < right) {
 				swap(left, right);
-//				cout << "Swapped " << array[left] << " with " << array[right]
-					<< ": " << getArray() << "\n";
+				left++;
+				right--;
 			}
 		}
 		swap(pivotIndex, left);
 		int temp = pivotIndex;
 		pivotIndex = left;
 		left = temp;
-//		cout << "Swapped " << array[temp] << " with " << array[left] << "\n";
 		partition(0, right, medianOfThree(0, right));
 		partition(pivotIndex + 1, left, medianOfThree(pivotIndex + 1, left));
 	}
@@ -88,13 +83,13 @@ string QS::getArray() {
 		return "";
 	}
 	string result = "";
-	for (int i = 0; i < add_count - 1; i++) {
+	for (int i = 0; i < array_size - 1; i++) {
 		stringstream convert;
 		convert << array[i];
 		result += convert.str() + ", ";
 	}
 	stringstream convert;
-	convert << array[add_count - 1];
+	convert << array[array_size - 1];
 	result += convert.str();
 	return result;
 }
@@ -107,6 +102,10 @@ void QS::addToArray(int value) {
 	if (add_count != array_size) {
 		array[add_count] = value;
 		add_count++;
+	} else if (array_size == 0) {
+		cout << "Array size 0, value not added." << "\n";
+	} else {
+		cout << "Array full, value not added." << "\n";
 	}
 }
 
