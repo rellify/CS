@@ -25,7 +25,7 @@ void QS::sortAll() {
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (left >= right || left < 0 || right > array_size) {
+	if (left >= right || left < 0 || right > array_size - 1) {
 		return -1;
 	} else if (left == right) {
 		// if only one cell 
@@ -127,5 +127,5 @@ bool QS::createArray(int size) {
 void QS::clear() {
 	delete[] array;
 	array = NULL;
-	array_size = 20;
+	array_size = 0;
 }
