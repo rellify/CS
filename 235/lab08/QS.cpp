@@ -25,7 +25,7 @@ void QS::sortAll() {
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (left >= right || left < 0 || right > array_size - 1) {
+	if (array == NULL || left > right || left < 0 || right > array_size - 1) {
 		return -1;
 	} else if (left == right) {
 		// if only one cell 
@@ -55,7 +55,10 @@ int QS::medianOfThree(int left, int right) {
 }
 
 int QS::partition(int left, int right, int pivotIndex) {
-	if ((right - left) > 1) {
+	if (array == NULL || left > right || left < 0 || right > array_size - 1
+			|| pivotIndex < left || pivotIndex > right) {
+		return -1;
+	} else if ((right - left) > 1) {
 		// if partition is 3 or greater
 		swap(pivotIndex, right);
 		pivotIndex = right;
