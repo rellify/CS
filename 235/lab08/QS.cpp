@@ -25,7 +25,7 @@ void QS::sortAll() {
 }
 
 int QS::medianOfThree(int left, int right) {
-	if (array == NULL || left > right || left < 0 || right > array_size - 1) {
+	if (array == NULL || left >= right || left < 0 || right > array_size - 1) {
 		return -1;
 	} else if (left == right) {
 		// if only one cell 
