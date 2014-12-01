@@ -23,7 +23,7 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		cout << "Invalid files" << "\n";
 		return false;
 	}
-
+	
 	return true;
 }
 
