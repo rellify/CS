@@ -66,7 +66,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	}
 	parent->height = getMax(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getBalance(parent); 
+	int balance = getBalance(parent);
 	// case 1: left left imbalance
 	if (balance > 1 && data < parent->left_child->data) {
 		return rotateRight(parent);
@@ -220,5 +220,18 @@ bool AVL::find(Node* parent, int data) {
 void AVL::clear() {
 	while (root != NULL) {
 		root = recursiveRemove(root, root->data);
+	}
+}
+
+void AVL::prePrint() {
+	prePrint(root);
+	cout << "\n";
+}
+
+void AVL::prePrint(Node* root) {
+	if (root != NULL) {
+		cout << root->data << " ";
+		prePrint(root->left_child);
+		prePrint(root->right_child);
 	}
 }

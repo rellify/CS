@@ -14,6 +14,8 @@ public:
 	bool remove(int data);
 	void print();
 	void find(int data);
+	void prePrint();
+	void prePrint(Node* root);
 private:
 	// methods
 	Node* recursiveAdd(Node* parent, int data);

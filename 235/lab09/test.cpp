@@ -12,8 +12,10 @@ int main() {
 	test.add(3);
 	test.add(5);
 	test.print();
+	test.prePrint();
 	cout << "---------------" << "\n";
 	test.remove(0);
 	test.print();
+	test.prePrint();
 	return 0;
 }

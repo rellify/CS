@@ -22,5 +22,5 @@ NodeInterface* Node::getLeftChild() {
 }
 
 NodeInterface* Node::getRightChild() {
-	return left_child;
+	return right_child;
 }
