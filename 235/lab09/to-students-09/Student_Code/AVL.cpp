@@ -76,7 +76,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
-		if (getBalance(parent->right_child) <= 0) {
+		if (data > parent->right_child->data) {
 			// right right imbalance (or ambiguous)
 			return rotateLeft(parent);
 		} else {
@@ -86,7 +86,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 		}
 	} else if (balance > 1) {
 		// left imbalance
-		if (getBalance(parent->left_child) >= 0) {
+		if (data < parent->left_child->data) {
 			// left left imbalance (or ambiguous)
 			return rotateRight(parent);
 		} else {
@@ -119,12 +119,10 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getHeight(parent->right_child) -
-		getHeight(parent->left_child);
+	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
-		if (getHeight(parent->right_child->left_child) -
-			getHeight(parent->right_child->right_child) <= 0) {
+		if (getBalance(parent->right_child) <= 0) {
 			// right right imbalance (or ambiguous)
 			return rotateLeft(parent);
 		} else {
@@ -135,8 +133,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	if (balance > 1) {
 		// left imbalance
-		if (getHeight(parent->right_child->left_child) -
-			getHeight(parent->right_child->right_child) >= 0) {
+		if (getBalance(parent->left_child) >= 0) {
 			// left left imbalance (or ambiguous)
 			return rotateRight(parent);
 		} else {
