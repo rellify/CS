@@ -23,6 +23,12 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		cout << "Invalid files" << "\n";
 		return false;
 	}
+	string temp = "";
+	while (getline(map_file, temp)) {
+		
+	}
+	StudentInterface* temp = new Student()
+	studentMap[ID] = 
 	
 	return true;
 }

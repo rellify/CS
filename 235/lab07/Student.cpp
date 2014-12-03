@@ -7,6 +7,7 @@ Student::Student(unsigned long long int new_ID, string new_name) {
 	grade_total = 0;
 	number_of_classes = 0;
 }
+
 Student::~Student() {}
 
 unsigned long long int Student::getID() {
@@ -23,4 +24,12 @@ string Student::getGPA() {
 	convert << GPA;
 	string result = convert.str();
 	return result; 
+}
+
+void Student::addGPA(double classGrade) {
+
+}
+
+string Student::toString() {
+	return "";
 }
