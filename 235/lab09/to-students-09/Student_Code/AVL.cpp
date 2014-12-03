@@ -111,30 +111,51 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
 
-
-
 	// THIS IS WHERE YOU ARE
-	// DEFAULTING IS PROBABLY THE CAUSE
+	// DEFAULTING IS PROBABLY THE CAUSE OF ISSUE
 	// NEEDS TO DEFAULT TO RIGHT-RIGHT LEFT-LEFT
 
+	if (balance < -1) {
+		// right imbalance
+		if (getBalance(parent->right_child) <= 0) {
+			// right right imbalance (or ambiguous)
+			return rotateLeft(parent);
+		} else {
+			// right left imbalance
+			parent->right_child = rotateRight(parent->right_child);
+			return rotateLeft(parent);
+		}
+	} else if (balance > 1) {
+		// left imbalance
+		if (getBalance(parent->left_child) >= 0) {
+			// left left imbalance (or ambiguous)
+			return rotateRight(parent);
+		} else {
+			parent->left_child = rotateLeft(parent->left_child);
+			return rotateRight(parent);
+		}
+	}
+
+
+
 	// case 1: right right imbalance
-	if (balance < -1 && getBalance(parent->right_child) <= 0) {
-		return rotateLeft(parent);
-	}
-	// case 2: left left imbalance
-	if (balance > 1 && getBalance(parent->left_child) >= 0) {
-		return rotateRight(parent);
-	}
-	// case 3: right left imbalance
-	if (balance < -1 && getBalance(parent->right_child) > 0) {
-        parent->right_child = rotateRight(parent->right_child);
-        return rotateLeft(parent);
-    }
-	// case 4: left right imbalance
-	if (balance > 1 && getBalance(parent->left_child) < 0) {
-		parent->left_child = rotateLeft(parent->left_child);
-		return rotateRight(parent);
-	}
+	// if (balance < -1 && getBalance(parent->right_child) <= 0) {
+	// 	return rotateLeft(parent);
+	// }
+	// // case 2: left left imbalance
+	// if (balance > 1 && getBalance(parent->left_child) >= 0) {
+	// 	return rotateRight(parent);
+	// }
+	// // case 3: right left imbalance
+	// if (balance < -1 && getBalance(parent->right_child) > 0) {
+ //        parent->right_child = rotateRight(parent->right_child);
+ //        return rotateLeft(parent);
+ //    }
+	// // case 4: left right imbalance
+	// if (balance > 1 && getBalance(parent->left_child) < 0) {
+	// 	parent->left_child = rotateLeft(parent->left_child);
+	// 	return rotateRight(parent);
+	// }
 	return parent;
 }
 
