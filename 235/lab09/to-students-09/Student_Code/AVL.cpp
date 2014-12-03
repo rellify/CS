@@ -146,7 +146,9 @@ int AVL::getBalance(Node* node) {
 	if (node == NULL) {
 		return 0;
 	} else {
-		return getHeight(node->left_child) - getHeight(node->right_child);
+		int stuff = getHeight(node->left_child) - getHeight(node->right_child);
+		cout << "Node: " << node->data << " , height: " << stuff << "\n";
+		return stuff;
 	}
 }
 
