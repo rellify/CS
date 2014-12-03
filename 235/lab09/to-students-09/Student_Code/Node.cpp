@@ -3,7 +3,7 @@
 Node::Node(int new_data) {
 	left_child = NULL;
 	right_child = NULL;
-	height = 1;
+	height = 0;
 	data = new_data;
 }
 
