@@ -110,24 +110,31 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
-	// case 1: left left imbalance
-	if (balance > 1 && getBalance(parent->left_child) > 0) {
-		return rotateRight(parent);
-	}
-	// case 2: left right imbalance
-	if (balance > 1 && getBalance(parent->left_child) <= 0) {
-		parent->left_child = rotateLeft(parent->left_child);
-		return rotateRight(parent);
-	}
-	// case 3: right right imbalance
-	if (balance < -1 && getBalance(parent->right_child) < 0) {
+
+
+
+	// THIS IS WHERE YOU ARE
+	// DEFAULTING IS PROBABLY THE CAUSE
+	// NEEDS TO DEFAULT TO RIGHT-RIGHT LEFT-LEFT
+
+	// case 1: right right imbalance
+	if (balance < -1 && getBalance(parent->right_child) <= 0) {
 		return rotateLeft(parent);
 	}
-	// case 4: right left imbalance
-	if (balance < -1 && getBalance(parent->right_child) >= 0) {
+	// case 2: left left imbalance
+	if (balance > 1 && getBalance(parent->left_child) >= 0) {
+		return rotateRight(parent);
+	}
+	// case 3: right left imbalance
+	if (balance < -1 && getBalance(parent->right_child) > 0) {
         parent->right_child = rotateRight(parent->right_child);
         return rotateLeft(parent);
     }
+	// case 4: left right imbalance
+	if (balance > 1 && getBalance(parent->left_child) < 0) {
+		parent->left_child = rotateLeft(parent->left_child);
+		return rotateRight(parent);
+	}
 	return parent;
 }
 
