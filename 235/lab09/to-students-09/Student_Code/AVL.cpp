@@ -1,6 +1,10 @@
 #include "AVL.h"
 #include <iostream>
 
+// ----------------------------------------------------------------------------
+// public ---------------------------------------------------------------------
+// ----------------------------------------------------------------------------
+
 AVL::AVL() {
 	root = NULL;
 }
@@ -14,7 +18,7 @@ NodeInterface* AVL::getRootNode() {
 }
 
 bool AVL::add(int data) {
-	if (find(root, data)) {
+	if (recursiveFind(root, data)) {
 		cout << data << " not added, already exists." << endl;
 		return false;
 	}
@@ -27,12 +31,12 @@ bool AVL::remove(int data) {
 	if (root == NULL) {
 		cout << data << " tree is empty, remove failed." << endl;
 		return false;
-	} else if (!find(root, data)) {
+	} else if (!recursiveFind(root, data)) {
 		cout << data << " not in tree, remove failed."<< endl;
 		return false;
 	} else {
 		root = recursiveRemove(root, data);
-		if (!find(root, data)) {
+		if (!recursiveFind(root, data)) {
 			cout << data << " removed successfully." << endl;
 			return true;
 		} else {
@@ -42,19 +46,26 @@ bool AVL::remove(int data) {
 	}
 }
 
-void AVL::print() {
-	recursivePrint(root);
-}
-
 void AVL::find(int data) {
-	if (find(root, data)) {
+	if (recursiveFind(root, data)) {
 		cout << data << " found in tree." << endl;
 	} else {
 		cout << data << " not found in tree." << endl;
 	}
 }
 
-// private
+void AVL::preOrderPrint() {
+	recursivePreOrderPrint(root);
+	cout << "\n";
+}
+
+void AVL::printHeights() {
+	recursivePrintHeights(root);
+}
+
+// ----------------------------------------------------------------------------
+// private --------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 Node* AVL::recursiveAdd(Node* parent, int data) {
 	if (parent == NULL) {
@@ -67,23 +78,46 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	parent->height = getMax(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
-	// case 1: left left imbalance
-	if (balance > 1 && data < parent->left_child->data) {
-		return rotateRight(parent);
-	}
-	// case 2: right right imbalance
-	if (balance < -1 && data > parent->right_child->data) {
-		return rotateLeft(parent);
-	}
-	// case 3: left right imbalance
-	if (balance > 1 && data > parent->left_child->data) {
-		parent->left_child = rotateLeft(parent->left_child);
-		return rotateRight(parent);
-	}
-	// case 4: right left imbalance
-	if (balance < -1 && data < parent->right_child->data) {
-		parent->right_child = rotateRight(parent->right_child);
-		return rotateLeft(parent);
+
+	// // case 1: left left imbalance
+	// if (balance > 1 && data < parent->left_child->data) {
+	// 	return rotateRight(parent);
+	// }
+	// // case 2: right right imbalance
+	// if (balance < -1 && data > parent->right_child->data) {
+	// 	return rotateLeft(parent);
+	// }
+	// // case 3: left right imbalance
+	// if (balance > 1 && data > parent->left_child->data) {
+	// 	parent->left_child = rotateLeft(parent->left_child);
+	// 	return rotateRight(parent);
+	// }
+	// // case 4: right left imbalance
+	// if (balance < -1 && data < parent->right_child->data) {
+	// 	parent->right_child = rotateRight(parent->right_child);
+	// 	return rotateLeft(parent);
+	// }
+
+	if (balance < -1) {
+		// right imbalance
+		if (getBalance(parent->right_child) <= 0) {
+			// right right imbalance (or ambiguous)
+			return rotateLeft(parent);
+		} else {
+			// right left imbalance
+			parent->right_child = rotateRight(parent->right_child);
+			return rotateLeft(parent);
+		}
+	} else if (balance > 1) {
+		// left imbalance
+		if (getBalance(parent->left_child) >= 0) {
+			// left left imbalance (or ambiguous)
+			return rotateRight(parent);
+		} else {
+			// left right imbalance
+			parent->left_child = rotateLeft(parent->left_child);
+			return rotateRight(parent);
+		}
 	}
 	return parent;
 }
@@ -195,47 +229,42 @@ int AVL::getMax(int first, int second) {
 	return (first > second)? first : second;
 }
 
-void AVL::recursivePrint(Node* node) {
+bool AVL::recursiveFind(Node* parent, int data) {
+	if (parent == NULL) {
+		return false;
+	} else if (data == parent->data) {
+		return true;
+	} else if (data < parent->data) {
+		return recursiveFind(parent->left_child, data);
+	} else {
+		return recursiveFind(parent->right_child, data);
+	}
+}
+
+void AVL::recursivePreOrderPrint(Node* root) {
+	if (root != NULL) {
+		cout << root->data << " ";
+		recursivePreOrderPrint(root->left_child);
+		recursivePreOrderPrint(root->right_child);
+	}
+}
+
+void AVL::recursivePrintHeights(Node* node) {
 	if (node != NULL) {
 		if (node->left_child != NULL) {
-			recursivePrint(node->left_child);
+			recursivePrintHeights(node->left_child);
 		}
 		cout << "Node: " << node->data << ", height: " << node->height << "\n";
 		if (node->right_child != NULL) {
-			recursivePrint(node->right_child);
+			recursivePrintHeights(node->right_child);
 		}
 	} else {
 		cout << "Tree is empty\n";
 	}
 }
 
-bool AVL::find(Node* parent, int data) {
-	if (parent == NULL) {
-		return false;
-	} else if (data == parent->data) {
-		return true;
-	} else if (data < parent->data) {
-		return find(parent->left_child, data);
-	} else {
-		return find(parent->right_child, data);
-	}
-}
-
 void AVL::clear() {
 	while (root != NULL) {
 		root = recursiveRemove(root, root->data);
-	}
-}
-
-void AVL::prePrint() {
-	recursivePrePrint(root);
-	cout << "\n";
-}
-
-void AVL::recursivePrePrint(Node* root) {
-	if (root != NULL) {
-		cout << root->data << " ";
-		recursivePrePrint(root->left_child);
-		recursivePrePrint(root->right_child);
 	}
 }

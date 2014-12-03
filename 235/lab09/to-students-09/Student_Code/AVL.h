@@ -8,15 +8,15 @@ class AVL : public AVLInterface {
 public:
 	AVL();
 	~AVL();
-	// methods
+	// functions
 	NodeInterface* getRootNode();
 	bool add(int data);
 	bool remove(int data);
-	void print();
-	void prePrint();
 	void find(int data);
-
-	// methods
+	void preOrderPrint();
+	void printHeights();
+private:
+	// functions
 	Node* recursiveAdd(Node* parent, int data);
 	Node* recursiveRemove(Node* parent, int data);
 	Node* rotateRight(Node* node);
@@ -25,9 +25,9 @@ public:
 	int getBalance(Node* node);
 	int getHeight(Node* node);
 	int getMax(int first, int second);
-	void recursivePrint(Node* node);
-	void recursivePrePrint(Node* root);
-	bool find(Node* parent, int data);
+	bool recursiveFind(Node* parent, int data);
+	void recursivePreOrderPrint(Node* root);
+	void recursivePrintHeights(Node* node);
 	void clear();
 	// data members
 	Node* root;

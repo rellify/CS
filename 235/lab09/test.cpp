@@ -12,11 +12,11 @@ int main() {
 	test.add(4);
 	test.add(9);
 	test.add(6);
-	test.print();
-	test.prePrint();
+	test.printHeights();
+	test.preOrderPrint();
 	cout << "-------------------" << "\n";
 	test.remove(2);
-	test.print();
-	test.prePrint();
+	test.printHeights();
+	test.preOrderPrint();
 	return 0;
 }
