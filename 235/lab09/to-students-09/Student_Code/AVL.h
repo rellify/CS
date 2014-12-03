@@ -2,7 +2,6 @@
 #define AVL_H_
 
 #include "AVLInterface.h"
-#include "BST.h"
 #include "Node.h"
 
 class AVL : public AVLInterface {
