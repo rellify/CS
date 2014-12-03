@@ -10,8 +10,6 @@ int main() {
 	test.remove(0);
 	test.remove(1);
 	test.remove(-1);
-	test.remove(2);
-	test.remove(-2);
 	test.preOrderPrint();
 	return 0;
 }

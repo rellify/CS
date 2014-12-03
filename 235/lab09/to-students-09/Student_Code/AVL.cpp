@@ -19,11 +19,11 @@ NodeInterface* AVL::getRootNode() {
 
 bool AVL::add(int data) {
 	if (recursiveFind(root, data)) {
-		cout << data << " not added, already exists." << endl;
+//		cout << data << " not added, already exists." << endl;
 		return false;
 	}
 	root = recursiveAdd(root, data);
-	cout << data << " added successfully." << endl;
+//	cout << data << " added successfully." << endl;
 	return true;
 }
 
@@ -73,8 +73,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	}
 	parent->height = getMax(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getHeight(parent->left_child) -
-		getHeight(parent->right_child);
+	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
 		if (getBalance(parent->right_child) <= 0) {
@@ -120,11 +119,11 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getHeight(parent->left_child) -
-		getHeight(parent->right_child);
+	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
-		if (getBalance(parent->right_child) <= 0) {
+		if (parent->right_child->left_child -
+			parent->right_child->right_child <= 0) {
 			// right right imbalance (or ambiguous)
 			return rotateLeft(parent);
 		} else {
@@ -135,7 +134,8 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	if (balance > 1) {
 		// left imbalance
-		if (getBalance(parent->left_child) >= 0) {
+		if (parent->right_child->left_child -
+			parent->right_child->right_child >= 0) {
 			// left left imbalance (or ambiguous)
 			return rotateRight(parent);
 		} else {
@@ -158,7 +158,7 @@ Node* AVL::rotateRight(Node* node) {
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
 	child->height = getMax(getHeight(child->left_child),
-		node->height) + 1;
+		getHeight(child->right_child)) + 1;
 	return child;
 }
 
@@ -172,8 +172,8 @@ Node* AVL::rotateLeft(Node* node) {
 	// update heights
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
-	child->height = getMax(getHeight(child->right_child),
-		node->height) + 1;
+	child->height = getMax(getHeight(child->left_child),
+		getHeight(child->right_child)) + 1;
 	return child;
 }
 
@@ -190,7 +190,7 @@ Node* AVL::replaceIOP(Node* current, Node* parent) {
 
 int AVL::getBalance(Node* node) {
 	if (node == NULL) {
-		return -1;
+		return 0;
 	} else {
 		return getHeight(node->left_child) - getHeight(node->right_child);
 	}
