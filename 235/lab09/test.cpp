@@ -3,21 +3,15 @@
 
 int main() {
 	AVL test;
-	test.add(20);
-	test.add(10);
-	test.add(30);
-	test.add(5);
-	test.add(25);
-	test.add(15);
-	test.add(40);
-	test.add(12);
-	test.add(28);
-	test.add(35);
-	test.add(45);
-	test.add(50);
-	test.preOrderPrint();
-	cout << "-------------------" << "\n" << "\n";
-	test.remove(5);
+	for (int i = 0; i < 51; i++) {
+		test.add(i);
+		test.add(-i);
+	}
+	test.remove(0);
+	test.remove(1);
+	test.remove(-1);
+	test.remove(2);
+	test.remove(-2);
 	test.preOrderPrint();
 	return 0;
 }

@@ -19,28 +19,28 @@ NodeInterface* AVL::getRootNode() {
 
 bool AVL::add(int data) {
 	if (recursiveFind(root, data)) {
-//		cout << data << " not added, already exists." << endl;
+		cout << data << " not added, already exists." << endl;
 		return false;
 	}
 	root = recursiveAdd(root, data);
-//	cout << data << " added successfully." << endl;
+	cout << data << " added successfully." << endl;
 	return true;
 }
 
 bool AVL::remove(int data) {
 	if (root == NULL) {
-//		cout << data << " tree is empty, remove failed." << endl;
+		cout << data << " tree is empty, remove failed." << endl;
 		return false;
 	} else if (!recursiveFind(root, data)) {
-//		cout << data << " not in tree, remove failed."<< endl;
+		cout << data << " not in tree, remove failed."<< endl;
 		return false;
 	} else {
 		root = recursiveRemove(root, data);
 		if (!recursiveFind(root, data)) {
-//			cout << data << " removed successfully." << endl;
+			cout << data << " removed successfully." << endl;
 			return true;
 		} else {
-//			cout << data << " not removed successfully." << endl;
+			cout << data << " not removed successfully." << endl;
 			return false;
 		}
 	}
@@ -48,9 +48,9 @@ bool AVL::remove(int data) {
 
 void AVL::find(int data) {
 	if (recursiveFind(root, data)) {
-//		cout << data << " found in tree." << endl;
+		cout << data << " found in tree." << endl;
 	} else {
-//		cout << data << " not found in tree." << endl;
+		cout << data << " not found in tree." << endl;
 	}
 }
 
@@ -73,7 +73,8 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	}
 	parent->height = getMax(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getBalance(parent);
+	int balance = getHeight(parent->left_child) -
+		getHeight(parent->right_child);
 	if (balance < -1) {
 		// right imbalance
 		if (getBalance(parent->right_child) <= 0) {
@@ -119,7 +120,8 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getBalance(parent);
+	int balance = getHeight(parent->left_child) -
+		getHeight(parent->right_child);
 	if (balance < -1) {
 		// right imbalance
 		if (getBalance(parent->right_child) <= 0) {
@@ -156,7 +158,7 @@ Node* AVL::rotateRight(Node* node) {
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
 	child->height = getMax(getHeight(child->left_child),
-		getHeight(child->right_child)) + 1;
+		node->height) + 1;
 	return child;
 }
 
@@ -170,8 +172,8 @@ Node* AVL::rotateLeft(Node* node) {
 	// update heights
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
-	child->height = getMax(getHeight(child->left_child),
-		getHeight(child->right_child)) + 1;
+	child->height = getMax(getHeight(child->right_child),
+		node->height) + 1;
 	return child;
 }
 
