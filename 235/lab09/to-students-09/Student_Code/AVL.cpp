@@ -115,7 +115,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 		return rotateRight(parent);
 	}
 	// case 2: left right imbalance
-	if (balance > 1 && getBalance(parent->left_child) < 0) {
+	if (balance > 1 && getBalance(parent->left_child) <= 0) {
 		parent->left_child = rotateLeft(parent->left_child);
 		return rotateRight(parent);
 	}
@@ -124,7 +124,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 		return rotateLeft(parent);
 	}
 	// case 4: right left imbalance
-	if (balance < -1 && getBalance(parent->right_child) > 0) {
+	if (balance < -1 && getBalance(parent->right_child) >= 0) {
         parent->right_child = rotateRight(parent->right_child);
         return rotateLeft(parent);
     }
