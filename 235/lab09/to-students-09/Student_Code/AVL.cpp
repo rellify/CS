@@ -111,7 +111,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
 	// case 1: left left imbalance
-	if (balance > 1 && getBalance(parent->left_child) >= 0) {
+	if (balance > 1 && getBalance(parent->left_child) > 0) {
 		return rotateRight(parent);
 	}
 	// case 2: left right imbalance
@@ -120,7 +120,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 		return rotateRight(parent);
 	}
 	// case 3: right right imbalance
-	if (balance < -1 && getBalance(parent->right_child) <= 0) {
+	if (balance < -1 && getBalance(parent->right_child) < 0) {
 		return rotateLeft(parent);
 	}
 	// case 4: right left imbalance
@@ -132,10 +132,13 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 }
 
 Node* AVL::rotateRight(Node* node) {
+	// save nodes
 	Node* child = node->left_child;
 	Node* child_subtree = child->right_child;
+	// rotate
 	child->right_child = node;
 	node->left_child = child_subtree;
+	// update heights
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
 	child->height = getMax(getHeight(child->left_child),
@@ -144,10 +147,13 @@ Node* AVL::rotateRight(Node* node) {
 }
 
 Node* AVL::rotateLeft(Node* node) {
+	// save nodes
 	Node* child = node->right_child;
 	Node* child_subtree = child->left_child;
+	// rotate
 	child->left_child = node;
 	node->right_child = child_subtree;
+	// update heights
 	node->height = getMax(getHeight(node->left_child),
 		getHeight(node->right_child)) + 1;
 	child->height = getMax(getHeight(child->left_child),
@@ -170,8 +176,7 @@ int AVL::getBalance(Node* node) {
 	if (node == NULL) {
 		return 0;
 	} else {
-		int stuff = getHeight(node->left_child) - getHeight(node->right_child);
-		return stuff;
+		return getHeight(node->left_child) - getHeight(node->right_child);
 	}
 }
 
