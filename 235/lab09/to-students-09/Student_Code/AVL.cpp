@@ -19,11 +19,11 @@ NodeInterface* AVL::getRootNode() {
 
 bool AVL::add(int data) {
 	if (recursiveFind(root, data)) {
-//		cout << data << " not added, already exists." << endl;
+		cout << data << " not added, already exists." << endl;
 		return false;
 	}
 	root = recursiveAdd(root, data);
-//	cout << data << " added successfully." << endl;
+	cout << data << " added successfully." << endl;
 	return true;
 }
 
@@ -71,8 +71,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	} else {
 		parent->right_child = recursiveAdd(parent->right_child, data);
 	}
-	parent->height = getMax(getHeight(parent->left_child),
-		getHeight(parent->right_child)) + 1;
+	setHeight(parent);
 	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
@@ -117,8 +116,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	if (parent == NULL) {
 		return parent;
 	}
-	parent->height = max(getHeight(parent->left_child),
-		getHeight(parent->right_child)) + 1;
+	setHeight(parent);
 	int balance = getBalance(parent);
 	if (balance < -1) {
 		// right imbalance
@@ -153,10 +151,8 @@ Node* AVL::rotateRight(Node* node) {
 	child->right_child = node;
 	node->left_child = child_subtree;
 	// update heights
-	node->height = getMax(getHeight(node->left_child),
-		getHeight(node->right_child)) + 1;
-	child->height = getMax(getHeight(child->left_child),
-		getHeight(child->right_child)) + 1;
+	setHeight(node);
+	setHeight(child);
 	return child;
 }
 
@@ -168,10 +164,8 @@ Node* AVL::rotateLeft(Node* node) {
 	child->left_child = node;
 	node->right_child = child_subtree;
 	// update heights
-	node->height = getMax(getHeight(node->left_child),
-		getHeight(node->right_child)) + 1;
-	child->height = getMax(getHeight(child->left_child),
-		getHeight(child->right_child)) + 1;
+	setHeight(node);
+	setHeight(child);
 	return child;
 }
 
@@ -204,6 +198,11 @@ int AVL::getHeight(Node* node) {
 
 int AVL::getMax(int first, int second) {
 	return (first > second) ? first : second;
+}
+
+void AVL::setHeight(Node* node) {
+	node->height = getMax(getHeight(node->left_child),
+		getHeight(node->right_child)) + 1;
 }
 
 bool AVL::recursiveFind(Node* parent, int data) {

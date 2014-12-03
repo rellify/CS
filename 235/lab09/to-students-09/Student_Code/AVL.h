@@ -24,6 +24,7 @@ private:
 	int getBalance(Node* node);
 	int getHeight(Node* node);
 	int getMax(int first, int second);
+	void setHeight(Node* node);
 	bool recursiveFind(Node* parent, int data);
 	void recursivePreOrderPrint(Node* root);
 	void clear();
