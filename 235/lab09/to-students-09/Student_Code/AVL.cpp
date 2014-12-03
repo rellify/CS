@@ -119,7 +119,8 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	}
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
-	int balance = getBalance(parent);
+	int balance = getHeight(parent->right_child) -
+		getHeight(parent->left_child);
 	if (balance < -1) {
 		// right imbalance
 		if (getHeight(parent->right_child->left_child) -
