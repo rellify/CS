@@ -19,28 +19,28 @@ NodeInterface* AVL::getRootNode() {
 
 bool AVL::add(int data) {
 	if (recursiveFind(root, data)) {
-		cout << data << " not added, already exists." << endl;
+//		cout << data << " not added, already exists." << endl;
 		return false;
 	}
 	root = recursiveAdd(root, data);
-	cout << data << " added successfully." << endl;
+//	cout << data << " added successfully." << endl;
 	return true;
 }
 
 bool AVL::remove(int data) {
 	if (root == NULL) {
-		cout << data << " tree is empty, remove failed." << endl;
+//		cout << data << " tree is empty, remove failed." << endl;
 		return false;
 	} else if (!recursiveFind(root, data)) {
-		cout << data << " not in tree, remove failed."<< endl;
+//		cout << data << " not in tree, remove failed."<< endl;
 		return false;
 	} else {
 		root = recursiveRemove(root, data);
 		if (!recursiveFind(root, data)) {
-			cout << data << " removed successfully." << endl;
+//			cout << data << " removed successfully." << endl;
 			return true;
 		} else {
-			cout << data << " not removed successfully." << endl;
+//			cout << data << " not removed successfully." << endl;
 			return false;
 		}
 	}
@@ -48,19 +48,15 @@ bool AVL::remove(int data) {
 
 void AVL::find(int data) {
 	if (recursiveFind(root, data)) {
-		cout << data << " found in tree." << endl;
+//		cout << data << " found in tree." << endl;
 	} else {
-		cout << data << " not found in tree." << endl;
+//		cout << data << " not found in tree." << endl;
 	}
 }
 
 void AVL::preOrderPrint() {
 	recursivePreOrderPrint(root);
 	cout << "\n";
-}
-
-void AVL::printHeights() {
-	recursivePrintHeights(root);
 }
 
 // ----------------------------------------------------------------------------
@@ -78,26 +74,6 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	parent->height = getMax(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
-
-	// // case 1: left left imbalance
-	// if (balance > 1 && data < parent->left_child->data) {
-	// 	return rotateRight(parent);
-	// }
-	// // case 2: right right imbalance
-	// if (balance < -1 && data > parent->right_child->data) {
-	// 	return rotateLeft(parent);
-	// }
-	// // case 3: left right imbalance
-	// if (balance > 1 && data > parent->left_child->data) {
-	// 	parent->left_child = rotateLeft(parent->left_child);
-	// 	return rotateRight(parent);
-	// }
-	// // case 4: right left imbalance
-	// if (balance < -1 && data < parent->right_child->data) {
-	// 	parent->right_child = rotateRight(parent->right_child);
-	// 	return rotateLeft(parent);
-	// }
-
 	if (balance < -1) {
 		// right imbalance
 		if (getBalance(parent->right_child) <= 0) {
@@ -161,7 +137,7 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 			// left left imbalance (or ambiguous)
 			return rotateRight(parent);
 		} else {
-			// left right imbalance
+			// left right imbalance 
 			parent->left_child = rotateLeft(parent->left_child);
 			return rotateRight(parent);
 		}
@@ -212,7 +188,7 @@ Node* AVL::replaceIOP(Node* current, Node* parent) {
 
 int AVL::getBalance(Node* node) {
 	if (node == NULL) {
-		return 0;
+		return -1;
 	} else {
 		return getHeight(node->left_child) - getHeight(node->right_child);
 	}
@@ -227,7 +203,7 @@ int AVL::getHeight(Node* node) {
 }
 
 int AVL::getMax(int first, int second) {
-	return (first > second)? first : second;
+	return (first > second) ? first : second;
 }
 
 bool AVL::recursiveFind(Node* parent, int data) {
@@ -244,23 +220,10 @@ bool AVL::recursiveFind(Node* parent, int data) {
 
 void AVL::recursivePreOrderPrint(Node* root) {
 	if (root != NULL) {
-		cout << root->data << " ";
+		cout << "Node: " << root->data << ", height: "
+			<< (root->height) << "\n";
 		recursivePreOrderPrint(root->left_child);
 		recursivePreOrderPrint(root->right_child);
-	}
-}
-
-void AVL::recursivePrintHeights(Node* node) {
-	if (node != NULL) {
-		if (node->left_child != NULL) {
-			recursivePrintHeights(node->left_child);
-		}
-		cout << "Node: " << node->data << ", height: " << node->height << "\n";
-		if (node->right_child != NULL) {
-			recursivePrintHeights(node->right_child);
-		}
-	} else {
-		cout << "Tree is empty\n";
 	}
 }
 

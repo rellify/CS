@@ -3,20 +3,21 @@
 
 int main() {
 	AVL test;
-	test.add(3);
-	test.add(1);
-	test.add(7);
-	test.add(2);
+	test.add(20);
+	test.add(10);
+	test.add(30);
 	test.add(5);
-	test.add(8);
-	test.add(4);
-	test.add(9);
-	test.add(6);
-	test.printHeights();
+	test.add(25);
+	test.add(15);
+	test.add(40);
+	test.add(12);
+	test.add(28);
+	test.add(35);
+	test.add(45);
+	test.add(50);
 	test.preOrderPrint();
-	cout << "-------------------" << "\n";
-	test.remove(2);
-	test.printHeights();
+	cout << "-------------------" << "\n" << "\n";
+	test.remove(5);
 	test.preOrderPrint();
 	return 0;
 }

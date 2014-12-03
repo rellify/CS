@@ -14,7 +14,6 @@ public:
 	bool remove(int data);
 	void find(int data);
 	void preOrderPrint();
-	void printHeights();
 private:
 	// functions
 	Node* recursiveAdd(Node* parent, int data);
@@ -27,7 +26,6 @@ private:
 	int getMax(int first, int second);
 	bool recursiveFind(Node* parent, int data);
 	void recursivePreOrderPrint(Node* root);
-	void recursivePrintHeights(Node* node);
 	void clear();
 	// data members
 	Node* root;
