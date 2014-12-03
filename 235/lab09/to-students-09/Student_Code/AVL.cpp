@@ -110,11 +110,6 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	parent->height = max(getHeight(parent->left_child),
 		getHeight(parent->right_child)) + 1;
 	int balance = getBalance(parent);
-
-	// THIS IS WHERE YOU ARE
-	// DEFAULTING IS PROBABLY THE CAUSE OF ISSUE
-	// NEEDS TO DEFAULT TO RIGHT-RIGHT LEFT-LEFT
-
 	if (balance < -1) {
 		// right imbalance
 		if (getBalance(parent->right_child) <= 0) {
@@ -131,31 +126,11 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 			// left left imbalance (or ambiguous)
 			return rotateRight(parent);
 		} else {
+			// left right imbalance
 			parent->left_child = rotateLeft(parent->left_child);
 			return rotateRight(parent);
 		}
 	}
-
-
-
-	// case 1: right right imbalance
-	// if (balance < -1 && getBalance(parent->right_child) <= 0) {
-	// 	return rotateLeft(parent);
-	// }
-	// // case 2: left left imbalance
-	// if (balance > 1 && getBalance(parent->left_child) >= 0) {
-	// 	return rotateRight(parent);
-	// }
-	// // case 3: right left imbalance
-	// if (balance < -1 && getBalance(parent->right_child) > 0) {
- //        parent->right_child = rotateRight(parent->right_child);
- //        return rotateLeft(parent);
- //    }
-	// // case 4: left right imbalance
-	// if (balance > 1 && getBalance(parent->left_child) < 0) {
-	// 	parent->left_child = rotateLeft(parent->left_child);
-	// 	return rotateRight(parent);
-	// }
 	return parent;
 }
 
@@ -253,14 +228,14 @@ void AVL::clear() {
 }
 
 void AVL::prePrint() {
-	prePrint(root);
+	recursivePrePrint(root);
 	cout << "\n";
 }
 
-void AVL::prePrint(Node* root) {
+void AVL::recursivePrePrint(Node* root) {
 	if (root != NULL) {
 		cout << root->data << " ";
-		prePrint(root->left_child);
-		prePrint(root->right_child);
+		recursivePrePrint(root->left_child);
+		recursivePrePrint(root->right_child);
 	}
 }
