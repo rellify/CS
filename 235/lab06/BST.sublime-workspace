@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"ri",
+				"right_child"
+			],
+			[
 				"wh",
 				"while_	while"
 			],
@@ -23,47 +27,47 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "Node.cpp",
-			"settings":
-			{
-				"buffer_size": 281,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "test.cpp",
-			"settings":
-			{
-				"buffer_size": 639,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Node.h",
-			"settings":
-			{
-				"buffer_size": 302,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "BST.h",
-			"settings":
-			{
-				"buffer_size": 449,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 339.0,
+		"height": 400.0,
 		"selected_items":
 		[
 			[
+				"trim",
+				"Trimmer: Trim trailing whitespace."
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
 				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -71,8 +75,12 @@
 				":w - Save"
 			],
 			[
-				"prv",
-				"PackageResourceViewer: Open Resource"
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
 			],
 			[
 				"rsv",
@@ -87,28 +95,12 @@
 				"Package Control: List Packages"
 			],
 			[
-				"trim",
-				"Trimmer: Delete empty lines."
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
-			],
-			[
-				"remove",
-				"Package Control: Remove Package"
-			],
-			[
 				"packagereso",
 				"PackageResourceViewer: Open Resource"
 			],
 			[
 				"Package",
 				"Package Control: Install Package"
-			],
-			[
-				"remov",
-				"Package Control: Remove Package"
 			],
 			[
 				"disabl",
@@ -164,24 +156,58 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/Users/spencerwood/Documents/cs-backup/235/lab06"
-	],
 	"file_history":
 	[
-		"/Users/spencerwood/Documents/cs-backup/235/lab06/BST.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/ErrorFiles/BeforeFile.tree",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/BST.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/BST.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/BSTInterface.h",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/newline.sublime-snippet",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/AVLInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/Node.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/NodeInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/Node.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/AVL.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/AVL.h",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/Factory.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab09/to-students-09/Student_Code/Factory.cpp",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/hello.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/artp.sublime-snippet",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/MultiMarkdown.sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/To Students/test_import.txt",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/_help-session.md",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/#ifndef-#define-#endif.sublime-snippet",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPAInterface.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Student.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/map-set.sublime-project",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Factory.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPA.h",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPA.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/Student.cpp",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/GPAInterface",
+		"/Users/spencerwood/Library/Application Support/Mou/CSS/Clearness.css",
+		"/Users/spencerwood/Library/Application Support/Mou/CSS/GitHub.css",
+		"/Users/spencerwood/Documents/notes/ARTHC-202/exam_iii.md",
+		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Markdown (Standard).sublime-settings",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/help-session.md",
+		"/Users/spencerwood/Documents/cs-backup/235/lab07/StudentInterface.h",
+		"/Users/spencerwood/Documents/red-rover/main.cpp",
+		"/Users/spencerwood/Documents/red-rover/Team.cpp",
+		"/Users/spencerwood/Documents/red-rover/redrover.sublime-project",
+		"/Users/spencerwood/Documents/CS/235/lab06/NodeInterface.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Node.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.h",
+		"/Users/spencerwood/Documents/CS/235/lab06/Factory.cpp",
+		"/Users/spencerwood/Documents/CS/235/lab06/BSTInterface.h",
 		"/Users/spencerwood/Documents/CS/235/lab06/BST.h",
 		"/Users/spencerwood/Documents/CS/235/lab06/BST.cpp",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/if-..-(if).sublime-snippet",
-		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/#ifndef-#define-#endif.sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache/while.sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Base File.sublime-settings",
-		"/Users/spencerwood/Documents/CS/235/lab06/NodeInterface.h",
-		"/Users/spencerwood/Documents/CS/235/lab06/BSTInterface.h",
-		"/Users/spencerwood/Documents/CS/235/lab06/Node.h",
 		"/Users/spencerwood/Documents/CS/235/lab06/test.cpp",
-		"/Users/spencerwood/Documents/CS/235/lab06/Factory.h",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/class-..-(class).sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/010-main()-(main).sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++/#include-(inc angle).sublime-snippet",
@@ -189,9 +215,7 @@
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/conditional/if_else.sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/conditional/if.sublime-snippet",
 		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/C++ Snippets/README.md",
-		"/Users/spencerwood/Documents/CS/235/lab06/Factory.cpp",
 		"/Users/spencerwood/Documents/CS/235/red_rover/main.cpp",
-		"/Users/spencerwood/Documents/CS/235/lab06/Node.cpp",
 		"/Users/spencerwood/Documents/CS/235/lab06/a.out",
 		"/Users/spencerwood/a.out",
 		"/Users/spencerwood/Documents/CS/235/lab06/Sublime/BST.h",
@@ -219,7 +243,6 @@
 		"/Users/spencerwood/Documents/CS/224/L05_stoplight/traffic.asm",
 		"/Users/spencerwood/.tmux.conf",
 		"/Users/spencerwood/.vimrc",
-		"/Users/spencerwood/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/Node.h",
 		"/Users/spencerwood/Documents/CS/235/lab02/Student_Code/LinkedList.h",
 		"/Users/spencerwood/Documents/CS/235/lab05/PathfinderInterface.h",
@@ -235,7 +258,7 @@
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
@@ -250,6 +273,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"print",
+			"prePrint",
+			"methods",
+			"recursivePrePrint",
+			"recursivePrint",
+			"find",
+			"root",
+			"find",
+			"recursivePrePrint",
+			"prePrint",
+			"add",
+			"left",
+			"printInOrder",
+			"BST",
+			"max",
+			"cout",
+			"\" << endl",
+			"std::",
+			"recursiveAdd",
+			"NULL",
+			"parent",
+			"Node",
+			"virtual",
+			"namespace",
+			"add",
+			"predecessor",
+			"predec",
 			"find",
 			"\"\\n\"",
 			"add",
@@ -268,6 +318,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"find",
 			"endl",
 			"find",
 			"remove",
@@ -285,132 +336,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "Node.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 281,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								86,
-								86
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "test.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 639,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"open_with_edit": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "Node.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 302,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								128,
-								128
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "BST.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 449,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								134,
-								147
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -431,18 +358,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -452,18 +372,14 @@
 		]
 	},
 	"menu_visible": true,
-	"output.exec":
-	{
-		"height": 124.0
-	},
 	"output.find_results":
 	{
 		"height": 0.0
 	},
-	"project": "lab06.sublime-project",
+	"project": "BST.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -471,6 +387,26 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"tes",
+				"test.cpp"
+			],
+			[
+				"bsth",
+				"to-students-09/Student_Code/BST.h"
+			],
+			[
+				"gpain",
+				"GPAInterface.h"
+			],
+			[
+				"bst.h",
+				"BSTInterface.h"
+			],
+			[
+				"bst",
+				"BST.h"
+			],
 			[
 				"bst.cp",
 				"BST.cpp"
@@ -502,10 +438,6 @@
 			[
 				"nodein",
 				"NodeInterface.h"
-			],
-			[
-				"bst",
-				"BST.h"
 			],
 			[
 				"no",
@@ -542,7 +474,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": false,
-	"side_bar_width": 189.0,
+	"side_bar_width": 193.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

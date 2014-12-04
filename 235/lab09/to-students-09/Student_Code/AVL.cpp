@@ -73,7 +73,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 	}
 	setHeight(parent);
 	int balance = getBalance(parent);
-	if (balance < -1) {
+	if (balance == -2) {
 		// right imbalance
 		if (data > parent->right_child->data) {
 			// right right imbalance (or ambiguous)
@@ -83,7 +83,7 @@ Node* AVL::recursiveAdd(Node* parent, int data) {
 			parent->right_child = rotateRight(parent->right_child);
 			return rotateLeft(parent);
 		}
-	} else if (balance > 1) {
+	} else if (balance == 2) {
 		// left imbalance
 		if (data < parent->left_child->data) {
 			// left left imbalance (or ambiguous)
