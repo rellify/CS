@@ -20,12 +20,13 @@ private:
 	Node* recursiveRemove(Node* parent, int data);
 	Node* rotateRight(Node* node);
 	Node* rotateLeft(Node* node);
+	Node* balance(Node* node);
 	Node* replaceIOP(Node* current, Node* parent);
 	int getBalance(Node* node);
 	int getHeight(Node* node);
 	int getMax(int first, int second);
-	void setHeight(Node* node);
 	bool recursiveFind(Node* parent, int data);
+	void setHeight(Node* node);
 	void recursivePreOrderPrint(Node* root);
 	void clear();
 	// data members
