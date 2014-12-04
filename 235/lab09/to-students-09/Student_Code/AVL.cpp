@@ -142,7 +142,6 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 			parent = rotateRight(parent);
 		}
 	}
-	setHeight(parent);
 	return parent;
 }
 
@@ -194,11 +193,7 @@ Node* AVL::replaceIOP(Node* current, Node* parent) {
 }
 
 int AVL::getBalance(Node* node) {
-	if (node == NULL) {
-		return 0;
-	} else {
-		return getHeight(node->left_child) - getHeight(node->right_child);
-	}
+	return getHeight(node->left_child) - getHeight(node->right_child);
 }
 
 int AVL::getHeight(Node* node) {
