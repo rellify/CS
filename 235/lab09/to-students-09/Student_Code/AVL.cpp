@@ -144,26 +144,34 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 }
 
 Node* AVL::rotateRight(Node* node) {
-	// save nodes
+	// // save nodes
+	// Node* child = node->left_child;
+	// Node* child_subtree = child->right_child;
+	// // rotate
+	// child->right_child = node;
+	// node->left_child = child_subtree;
+	// // update heights
+	
 	Node* child = node->left_child;
-	Node* child_subtree = child->right_child;
-	// rotate
+	node->left_child = child->right_child;
 	child->right_child = node;
-	node->left_child = child_subtree;
-	// update heights
 	setHeight(node);
 	setHeight(child);
 	return child;
 }
 
 Node* AVL::rotateLeft(Node* node) {
-	// save nodes
+	// // save nodes
+	// Node* child = node->right_child;
+	// Node* child_subtree = child->left_child;
+	// // rotate
+	// child->left_child = node;
+	// node->right_child = child_subtree;
+	// // update heights
+
 	Node* child = node->right_child;
-	Node* child_subtree = child->left_child;
-	// rotate
+	node->right_child = child->left_child;
 	child->left_child = node;
-	node->right_child = child_subtree;
-	// update heights
 	setHeight(node);
 	setHeight(child);
 	return child;
