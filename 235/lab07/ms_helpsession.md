@@ -42,7 +42,7 @@ myMap.find(3) != myMap.end()
 
 map<ULLI, SI ptr>::iterator it;
 
-it->second is the value 
+it->second is the value
 
 SI ptr temp = it->second
 temp.setGPA(A);

@@ -5,7 +5,7 @@
 
 class Student : public StudentInterface {
 public:
-	Student(unsigned long long int new_ID, string new_name);
+	Student();
 	~Student();
 
 	// methods
