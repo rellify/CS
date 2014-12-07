@@ -75,9 +75,8 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		newStudent->address = line;
 		getline(map_file, line);
 		newStudent->phone_number = line;
-		StudentInterface* temp = newStudent;
 		studentMap.insert(pair<unsigned long long int, StudentInterface*>
-			(ID_temp, temp));
+			(ID_temp, newStudent));
 	}
 	ifstream set_file;
 	set_file.open(setFileName.c_str());
@@ -93,6 +92,7 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		newStudent->address = line;
 		getline(set_file, line);
 		newStudent->phone_number = line;
+		studentSet.insert(newStudent);
 	}
 	return true;
 }
