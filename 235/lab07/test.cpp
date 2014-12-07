@@ -4,22 +4,15 @@
 #include <string>
 #include <sstream>
 #include "to-students/Student_Code/Student.h"
+#include "to-students/Student_Code/GPA.h"
 
 using namespace std;
 
 int main() {
-	Student* test = new Student();
-	test->ID = 123456;
-	test->name = "Spencer";
-	test->address = "the moon";
-	test->phone_number = "720yourmom";
-	test->grade_total = 4;
-	test->number_of_classes = 2;
-	cout << test->toString() << "\n";
-
-	double GPA = 4;
-	stringstream precise;
-	precise << fixed << setprecision(2) << GPA;
-	cout << precise.str() << "\n";
+	GPA hello;
+	bool tester = hello.importStudents("to-students/Files/classListMap_Small.txt", "to-students/Files/classListSet_Small.txt");
+	if (!tester) {
+		cout << "Failed." << "\n";
+	}
 	return 0;
 }
