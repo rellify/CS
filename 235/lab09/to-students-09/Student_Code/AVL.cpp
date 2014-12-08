@@ -92,6 +92,30 @@ Node* AVL::recursiveRemove(Node* parent, int data) {
 	return balance(parent);
 }
 
+Node* AVL::balance(Node* node) {
+	if (node == NULL) {
+		return node;
+	}
+	setHeight(node);
+	// right imbalance
+	if (getBalance(node) == -2) {
+		// if right left imbalance, rotate the right child
+		if (getBalance(node->right_child) > 0) {
+			node->right_child = rotateRight(node->right_child);
+		}
+		return rotateLeft(node);
+	}
+	// left imbalance
+	if (getBalance(node) == 2) {
+		// if left right imbalance, rotate the left child
+		if (getBalance(node->left_child) < 0) {
+			node->left_child = rotateLeft(node->left_child);
+		}
+		return rotateRight(node);
+	}
+	return node;
+}
+
 Node* AVL::rotateRight(Node* node) {
 	// rotate
 	Node* child = node->left_child;
@@ -112,26 +136,6 @@ Node* AVL::rotateLeft(Node* node) {
 	setHeight(node);
 	setHeight(child);
 	return child;
-}
-
-Node* AVL::balance(Node* node) {
-	if (node == NULL) {
-		return node;
-	}
-	setHeight(node);
-	if (getBalance(node) == -2) {
-		if (getBalance(node->right_child) > 0) {
-			node->right_child = rotateRight(node->right_child);
-		}
-		return rotateLeft(node);
-	}
-	if (getBalance(node) == 2) {
-		if (getBalance(node->left_child) < 0) {
-			node->left_child = rotateLeft(node->left_child);
-		}
-		return rotateRight(node);
-	}
-	return node;
 }
 
 Node* AVL::replaceIOP(Node* current, Node* parent) {

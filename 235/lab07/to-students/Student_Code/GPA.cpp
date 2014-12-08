@@ -63,7 +63,8 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 	// everything looks good, files ready to import
 	ifstream map_file;
 	map_file.open(mapFileName.c_str());
-	while (getline(map_file, line)) {
+	while (!map_file.eof()) {
+		getline(map_file, line);
 		Student* newStudent = new Student();
 		stringstream convert(line);
 		unsigned long long int ID_temp;
@@ -77,10 +78,12 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		newStudent->phone_number = line;
 		studentMap.insert(pair<unsigned long long int, StudentInterface*>
 			(ID_temp, newStudent));
+		cout << "Student with ID: " << ID_temp << " added to the map.\n";
 	}
 	ifstream set_file;
 	set_file.open(setFileName.c_str());
-	while (getline(set_file, line)) {
+	while (!set_file.eof()) {
+		getline(set_file, line);
 		Student* newStudent = new Student();
 		stringstream convert(line);
 		unsigned long long int ID_temp;
@@ -92,7 +95,10 @@ bool GPA::importStudents(string mapFileName, string setFileName) {
 		newStudent->address = line;
 		getline(set_file, line);
 		newStudent->phone_number = line;
+		// is this right
 		studentSet.insert(newStudent);
+		// -------------
+		cout << "Student with ID: " << ID_temp << " added to the set.\n";
 	}
 	return true;
 }

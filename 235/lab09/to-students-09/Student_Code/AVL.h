@@ -18,9 +18,9 @@ private:
 	// functions
 	Node* recursiveAdd(Node* parent, int data);
 	Node* recursiveRemove(Node* parent, int data);
+	Node* balance(Node* node);	
 	Node* rotateRight(Node* node);
 	Node* rotateLeft(Node* node);
-	Node* balance(Node* node);
 	Node* replaceIOP(Node* current, Node* parent);
 	int getBalance(Node* node);
 	int getHeight(Node* node);
