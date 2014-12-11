@@ -146,7 +146,7 @@ Node* AVL::replaceIOP(Node* current, Node* parent) {
 	Node* temp = current->left_child;
 	parent->data = current->data;
 	delete current;
-	return temp;
+	return balance(temp);
 }
 
 int AVL::getBalance(Node* node) {
@@ -185,7 +185,7 @@ void AVL::setHeight(Node* node) {
 void AVL::recursivePreOrderPrint(Node* root) {
 	if (root != NULL) {
 		cout << "Node: " << root->data << ", height: "
-			<< (root->height) << "\n";
+		<< (root->height) << "\n";
 		recursivePreOrderPrint(root->left_child);
 		recursivePreOrderPrint(root->right_child);
 	}
